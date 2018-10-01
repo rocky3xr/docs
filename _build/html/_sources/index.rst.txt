@@ -2,8 +2,8 @@
 Rupaya Documentation
 ====================
 
-.. image:: img/Rupaya-logo-dark.png
-   :width: 30 %
+.. image:: img/Rupaya_Logo_RGB_Color_Lg.png
+   :width: 60 %
    :align: center
 
 The Rupaya platform will encompass three main pillars in order to effectively solve the key payment and transaction challenges facing South Asia.
