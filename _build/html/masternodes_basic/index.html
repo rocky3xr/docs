@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="Introduction to the Rupaya cryptocurrency and links to further reading" name="description" />
+<meta content="rupaya, rupx, masternodes, hosted, hosting, linux, setup, payment" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Masternodes: Basic Setup &mdash; Rupaya 5.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setup Overview" href="setupoverview.html" />
+    <link rel="prev" title="Upgrade an Existing MasterNode VPS Hot Wallet" href="../coinswap/upgradeexistingmn.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+    <meta name="author" content="Rupaya Core Team" />
+    <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/Rupaya-logo-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/about.html">What is Rupaya?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/about.html#white-paper">White Paper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/about.html#roadmap">Roadmap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/features.html#specifications">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/features.html#masternodes">Masternodes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/how-to-buy.html">How To Buy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/how-to-buy.html#exchanges">Exchanges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#coinmarketcap">CoinMarketCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#rupaya-markets">Rupaya markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#list-of-exchanges">List of exchanges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/safety.html">Safety</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/safety.html#scams">Scams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/safety.html#ponzi-schemes">Ponzi Schemes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/information.html">Links and Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#links">Links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#official-sites">Official sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#chat">Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#social-media">Social media</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#facebook">Facebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#twitter">Twitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#blogs">Blogs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#block-explorers-statistics-and-visualizations">Block explorers, statistics and visualizations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#treasury-tools">Treasury tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#masternode-management">Masternode management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#price-monitoring-and-statistics">Price monitoring and statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#mobile-apps">Mobile Apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#ios">iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#android">Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#glossary">Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/index.html">Wallets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users/index.html#rupaya-core-wallet">Rupaya Core Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Merchants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../merchants/about.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Network</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../coinswap/index.html">Rupaya Core - Coin Swap Procedures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/unlockmncoins.html">Unlock all of your Masternode coins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/consolidatingcoins.html">Consolidating Coins Into A Single Wallet Address</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/consolidatingcoins.html#consolidating-rupx">Consolidating RUPX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/consolidatingcoins.html#consolidating-zrupx">Consolidating zRUPX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/walletinstall.html">Install the New Rupaya Core 5 Wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/walletinstall.html#documenting-your-new-wallet-address">Documenting Your New Wallet Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/walletinstall.html#updating-the-wallet-default-settings">Updating the Wallet Default Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../coinswap/walletinstall.html#enable-coin-control">Enable Coin Control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../coinswap/walletinstall.html#disable-zrupx-automint">Disable zRUPX Automint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/swapbotsteps.html">Swap Bot - Steps to Perform the Coin Swap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/swapbotsteps.html#simple-instructions-for-advanced-users">Simple Instructions for Advanced Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/swapbotsteps.html#detailed-instructions">Detailed Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Masternodes: Basic Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setupoverview.html">Setup Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vpsandhotwallet.html#order-and-setup-a-linux-vps">Order and setup a Linux VPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vpsandhotwallet.html#download-and-configure-the-rupaya-hot-wallet">Download and Configure the Rupaya Hot wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vpsandhotwallet.html#verify-the-hot-wallet-is-synchronizing-with-the-blockchain">Verify the Hot wallet is synchronizing with the blockchain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="coldwallet.html">Cold Wallet Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="verifymnstarted.html">Verify the MasterNode Started</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rupaya</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Masternodes: Basic Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masternodes_basic/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="masternodes-basic-setup">
+<span id="masternodes-basic"></span><h1>Masternodes: Basic Setup<a class="headerlink" href="#masternodes-basic-setup" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setupoverview.html">Setup Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpsandhotwallet.html">VPS and Hot wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coldwallet.html">Cold Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="verifymnstarted.html">Verify the MasterNode Started</a></li>
+</ul>
+</div>
+<p>Masternodes are servers with a pre-determined amount of collateral backing their power to validate transactions on the network.  Features of the masternode network include anonymous and instant transactions, as well as governance of the development of the Rupaya network through a monthly budget and voting. This in itself is a first in the crypto world, and the masternodes are necessary to achieve the privacy and speed that Rupaya offers. In terms of Rupaya, the amount required to run a masternode is 20000 RUPX.  <strong>YOU NEED TO BUY 20001 IN ORDER TO COVER TRANSACTION FEES FROM THE EXCHANGE TO YOUR WALLET</strong> (Transfer fee from stocks exchange is .001 for example).  In exchange for this investment your server running the Rupaya core wallet is enabled to validate transactions on the blockchain.  For this validation service that your server is providing, you are rewarded in two ways.  The most straightforward way is in the case of Masternode Rewards (set amount of currency).  The current reward phase can be located on the website at <a class="reference external" href="https://www.rupx.io/rewards">Reward Breakdown</a>.  The second is through the governance system.  Proposals are submitted and only Masternode owners may vote on those proposals and thereby you help to control the growth and development of your investment.</p>
+<p>This documentation is concentrated on providing a strong understanding of the services that masternodes provide to the network, but also how to to setup your masternode via either a hosted service provider or maintaining your own server.</p>
+<p><strong>Option 1: Hosted masternode</strong></p>
+<p>Running a masternode on your own does require an intermediate understanding of blockchains and server configuration, and while we do provide guides and tools to make this as easy as possible, we understand that many may still prefer to have someone take care of all the setup and maitenance.  Several members of the blockchain community have emerged to provide dedicated hosting solutions for a fee.  No technical experience is required as you need only provide them with payment for the collateral and hosting services to received the block reward.</p>
+<p><strong>Option 2: Self-operated masternode</strong></p>
+<p>Users with the required skills or the desire to learn more about the inner workings of the Rupaya network may choose to run their own masternode on the host server of their choosing.  There are several steps involved in this process and the user assumes the responsibility to set up, configure, maintain, and secure your masternode collateral.  The following pages will get you started on your journey to understanding the masternode role and setting up your first masternode.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setupoverview.html" class="btn btn-neutral float-right" title="Setup Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../coinswap/upgradeexistingmn.html" class="btn btn-neutral" title="Upgrade an Existing MasterNode VPS Hot Wallet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Rupaya Core Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

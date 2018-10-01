@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="This guide describes how to set up a Rupaya masternode. It also describes various options for hosting and different wallets" name="description" />
+<meta content="rupaya, rupx, guide, masternodes" name="keywords" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup &mdash; Rupaya 5.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maintenance" href="maintenance.html" />
+    <link rel="prev" title="Hosted Service Providers" href="hosted.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+    <meta name="author" content="Rupaya Core Team" />
+    <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/Rupaya-logo-white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/about.html">What is Rupaya?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/about.html#white-paper">White Paper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/about.html#roadmap">Roadmap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/features.html">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/features.html#specifications">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/features.html#masternodes">Masternodes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/how-to-buy.html">How To Buy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/how-to-buy.html#exchanges">Exchanges</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#coinmarketcap">CoinMarketCap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#rupaya-markets">Rupaya markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/how-to-buy.html#list-of-exchanges">List of exchanges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/safety.html">Safety</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/safety.html#scams">Scams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/safety.html#ponzi-schemes">Ponzi Schemes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/information.html">Links and Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#links">Links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#official-sites">Official sites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#chat">Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#social-media">Social media</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#facebook">Facebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#twitter">Twitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#blogs">Blogs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#block-explorers-statistics-and-visualizations">Block explorers, statistics and visualizations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#treasury-tools">Treasury tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#masternode-management">Masternode management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#price-monitoring-and-statistics">Price monitoring and statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#mobile-apps">Mobile Apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#ios">iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction/information.html#android">Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/information.html#glossary">Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/index.html">Wallets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../users/index.html#rupaya-core-wallet">Rupaya Core Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Merchants</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../merchants/about.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Network</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Masternodes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html">Masternodes 101</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosted.html">Hosted Service Providers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html">Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">Advanced Topics</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rupaya</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Masternodes</a> &raquo;</li>
+        
+      <li>Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/masternodes/setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup">
+<span id="id1"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt consectetur lacinia. Integer tincidunt tempor nisi eu pulvinar. Fusce in facilisis dolor. Nulla tincidunt velit in tortor venenatis, ut venenatis nisi dictum. Sed dictum diam et massa porta condimentum. Pellentesque sagittis cursus tincidunt. Fusce aliquam maximus semper. Etiam ligula eros, ornare vitae lacus ut, commodo pulvinar dolor. Proin efficitur libero sed arcu maximus blandit. Quisque eu accumsan libero, quis sagittis erat.</p>
+<p>Nulla aliquet, nulla sed maximus suscipit, turpis orci commodo mi, suscipit egestas purus ligula a est. Donec dolor ligula, sollicitudin vitae fringilla non, aliquam accumsan ex. Vivamus fringilla leo ac enim euismod, et vestibulum sem ultrices. Praesent at aliquam magna. Nunc tristique, massa non suscipit vehicula, massa sapien interdum tortor, in egestas sem neque ac ex. Donec eget nibh gravida, porttitor lorem euismod, egestas nulla. Maecenas cursus, ligula non hendrerit commodo, urna magna malesuada quam, quis pellentesque risus dolor ut tellus. Curabitur id quam in neque dapibus sagittis. Donec venenatis tellus consequat libero aliquam, a mollis arcu gravida. In enim velit, porta at sapien sed, vehicula viverra lectus. Curabitur dictum efficitur neque, vitae mattis eros lobortis in.</p>
+<p>Aliquam turpis orci, porta eget tristique et, tempus eu sem. Maecenas dignissim in urna a ornare. Pellentesque non eros eget lorem pulvinar rutrum. Aenean ut enim volutpat ligula pretium convallis in non tellus. Aliquam erat volutpat. Nulla sit amet porttitor mi. Aliquam sollicitudin a leo quis varius. Sed quis quam sollicitudin, tristique metus ac, congue justo. Vestibulum a mauris ultricies metus varius pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum metus lorem, semper quis mauris quis, tincidunt congue nisl. Proin et nulla fermentum, eleifend velit interdum, sagittis tellus. Nulla vulputate vulputate orci, at blandit odio lobortis at. Proin scelerisque nulla eu vestibulum interdum.</p>
+<p>Proin malesuada, purus vitae imperdiet molestie, leo metus convallis nunc, vel molestie dolor sem et elit. Sed id augue ex. Vestibulum laoreet at massa tempus condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum consequat, tellus vitae faucibus eleifend, dolor lorem vulputate ante, ac ornare nisl diam non urna. Etiam consectetur purus vitae porttitor placerat. Pellentesque auctor, lacus sit amet pharetra finibus, dolor mauris tempus elit, non ultricies metus tortor tempus neque. Vestibulum risus ex, pretium in ex et, maximus convallis risus. Praesent luctus, sapien eu tincidunt ullamcorper, eros metus ornare eros, sed pulvinar lorem lectus a ante. In eu tellus lobortis, porttitor arcu non, tincidunt elit. Sed eu libero quis ante tempor mattis sit amet sit amet nisi. Nunc vitae tortor dolor. In egestas ex at mattis tristique. Suspendisse purus nisi, blandit vel elit nec, sodales iaculis ex. Nam sollicitudin ultrices dui vitae venenatis.</p>
+<p>Cras hendrerit nibh vitae mauris dapibus blandit. Nulla dignissim, neque condimentum congue finibus, lectus orci fermentum ante, in dapibus lacus eros nec dui. Vestibulum id orci arcu. Phasellus porta turpis arcu. Nulla pretium elit a tincidunt suscipit. Suspendisse molestie urna lectus, vel laoreet lorem pulvinar id. Aliquam arcu elit, pretium et consequat id, tempus eget dolor. Praesent a interdum neque, at interdum erat. Vestibulum hendrerit tellus sed velit sollicitudin, eu ultrices diam efficitur. Vestibulum laoreet laoreet leo ac molestie. Vivamus vulputate augue metus, id maximus tellus sollicitudin ut. Cras mattis metus nisl, id pulvinar augue sagittis non.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="maintenance.html" class="btn btn-neutral float-right" title="Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hosted.html" class="btn btn-neutral" title="Hosted Service Providers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Rupaya Core Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'5.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
