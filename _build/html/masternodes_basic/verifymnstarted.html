@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Masternodes: Basic Setup</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setupoverview.html">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
@@ -184,13 +184,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -267,25 +269,31 @@
 <ol class="arabic">
 <li><p class="first">Login to the Linux VPS console via Putty or Terminal.</p>
 </li>
+<li><p class="first">Run the following command to verify that the output <strong>“CActiveFundamentalnode::EnableHotColdFundamentalNode() - Enabled! You may shut down the cold daemon.”</strong> is showing up in your debug log.  This is a very useful command to run immediately after starting the MN:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">rupaya</span><span class="o">/</span><span class="n">debug</span><span class="o">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">HotCold</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ul class="simple">
+<li><strong>NOTE: Output from this command will only show up if your MasterNode started properly</strong></li>
+</ul>
+<ol class="arabic" start="3">
 <li><p class="first">Run the following command to verify the status of the MasterNode:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">masternode</span> <span class="n">status</span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>If you see status <cite>Not capable masternode: Hot node, waiting for remote activation</cite>, you need to wait a bit longer for the blockchain to reach consensus. It’s common to take 30 to 90 minutes before activation can be done.</p>
-<p>If you see status <cite>MasterNode successfully started</cite>, you’ve done it, congratulations. Go hug someone now :)</p>
-<p>It will take a few hours until the first rewards start coming in.</p>
-<ol class="arabic" start="3">
-<li><p class="first">Run the following command to verify that the output “CActiveFundamentalnode::EnableHotColdFundamentalNode() - Enabled! You may shut down the cold daemon.” is showing up in your debug log.  This is a very useful command to run immediately after starting the MN.  Output from this command will only show up if your MN started properly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">rupaya</span><span class="o">/</span><span class="n">debug</span><span class="o">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">HotCold</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Check the MasterNode tracker website <a class="reference external" href="https://find.rupx.io/masternodes">find.rupx.io</a> to see that your MasterNode(s) are showing up on the site.  You will need to search by your MasterNode wallet address to locate it on the website.</p>
-</li>
+<ul class="simple">
+<li>If you see status <strong>Not capable masternode: Hot node, waiting for remote activation</strong>, you need to wait a bit longer for the blockchain to reach consensus. It’s common to take 30 to 90 minutes before activation can be done.</li>
+<li>If you see status <strong>MasterNode successfully started</strong> as well as the <strong>HotCold</strong> output from the first command then you’ve done it, congratulations!! Go hug someone now :)</li>
+<li>It will take a few hours until the first rewards start coming in.  The time before the first payout will increase as more MasterNodes come online.</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>Check the MasterNode tracker website <a class="reference external" href="https://find.rupx.io/masternodes">find.rupx.io</a> to see that your MasterNode(s) are showing up on the site.  You will need to search by your MasterNode wallet address to locate it on the website.  The site is refreshed every 5 minutes so don’t be surprised if it takes up to 5 minutes to show up on the website.</li>
 </ol>
-<p>Congratulations! The setup process is now complete and your MasterNode is now fully operational!</p>
+<p>Congratulations! The setup process is complete and your MasterNode is fully operational!</p>
 </div>
 
 

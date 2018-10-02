@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Masternodes: Basic Setup</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setupoverview.html">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">VPS and Hot wallet Setup</a><ul>
@@ -184,13 +184,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="verifymnstarted.html">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -263,7 +265,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vps-and-hot-wallet-setup">
-<h1>VPS and Hot wallet Setup<a class="headerlink" href="#vps-and-hot-wallet-setup" title="Permalink to this headline">¶</a></h1>
+<span id="basicsetup"></span><h1>VPS and Hot wallet Setup<a class="headerlink" href="#vps-and-hot-wallet-setup" title="Permalink to this headline">¶</a></h1>
 <p>This server and wallet will run 24/7 and provides services to the network via TCP port <strong>9050</strong> for which it will be rewarded with coins. It will run with an empty wallet reducing the risk of losing the funds in the event of an attack.</p>
 <p><strong>Order and setup a Linux VPS</strong></p>
 <ol class="arabic simple">
@@ -277,7 +279,7 @@
 <ol class="arabic simple">
 <li><a class="reference internal" href="#downloadwallet"><span class="std std-ref">Install the Rupaya Hot wallet on the VPS</span></a></li>
 <li><a class="reference internal" href="#startservice"><span class="std std-ref">Start the Hot wallet service</span></a></li>
-<li><a class="reference internal" href="#generategenkey"><span class="std std-ref">Generate the masternode private key (aka GenKey)</span></a></li>
+<li><a class="reference internal" href="#generategenkey"><span class="std std-ref">Generate the MasterNode private key (aka GenKey)</span></a></li>
 <li><a class="reference internal" href="#savegenkey"><span class="std std-ref">Copy and save the MasterNode private key</span></a></li>
 <li><a class="reference internal" href="#editconfig"><span class="std std-ref">Edit the Hot wallet configuration file (/root/.rupayacore/rupaya.conf)</span></a></li>
 <li><a class="reference internal" href="#copyconfig"><span class="std std-ref">Copy the rupaya.conf template and update the configuration data accordingly</span></a></li>
@@ -287,8 +289,8 @@
 </ol>
 <p><strong>Verify the Hot wallet is synchronizing with the blockchain</strong></p>
 <ol class="arabic simple">
-<li><a class="reference internal" href="#getinfo"><span class="std std-ref">Run the **rupaya-cli getinfo** command to make sure that you see active connections</span></a></li>
-<li><a class="reference internal" href="#blockcount"><span class="std std-ref">Run the **rupaya-cli getblockcount** command every few mins until you see the blocks increasing</span></a></li>
+<li><a class="reference internal" href="#getinfo"><span class="std std-ref">Run the rupaya-cli getinfo command to make sure that you see active connections</span></a></li>
+<li><a class="reference internal" href="#blockcount"><span class="std std-ref">Run the rupaya-cli getblockcount command every few mins until you see the blocks increasing</span></a></li>
 </ol>
 <div class="section" id="order-and-setup-a-linux-vps">
 <h2>Order and setup a Linux VPS<a class="headerlink" href="#order-and-setup-a-linux-vps" title="Permalink to this headline">¶</a></h2>
@@ -346,8 +348,8 @@ If you are running a VPS from Vultr or similar, you need to use an SSH client, s
 <h2>Download and Configure the Rupaya Hot wallet<a class="headerlink" href="#download-and-configure-the-rupaya-hot-wallet" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic" id="downloadwallet">
 <li><p class="first">Install the Rupaya Hot wallet on the VPS.  Download and unpack the Rupaya wallet binaries by running the following commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">-</span><span class="n">us</span><span class="o">-</span><span class="n">west</span><span class="o">-</span><span class="mf">2.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rupayax</span><span class="o">/</span><span class="mf">75.1</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">x64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">sudo</span> <span class="n">tar</span> <span class="n">xvzf</span> <span class="n">linux</span><span class="o">-</span><span class="n">x64</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rupaya</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">rupx</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v5</span><span class="o">.</span><span class="mf">0.25</span><span class="o">/</span><span class="n">rupayaqt</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="n">bit</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">sudo</span> <span class="n">tar</span> <span class="n">xvzf</span> <span class="n">rupayaqt</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="n">bit</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
@@ -382,97 +384,69 @@ If you are running a VPS from Vultr or similar, you need to use an SSH client, s
 </ol>
 <ol class="arabic" id="copyconfig" start="6">
 <li><p class="first">Copy the rupaya.conf template and update the configuration data accordingly.  All variables that need to be updated manually are identified with the &lt;&gt; symbols around them:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">rpcuser</span><span class="o">=</span><span class="n">rupayarpc</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcpassword</span><span class="o">=&lt;</span><span class="n">alphanumeric_rpc_password</span><span class="o">&gt;**</span>
-<span class="o">**</span><span class="n">rpcport</span><span class="o">=</span><span class="mi">7020</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcallowip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcconnect</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcbind</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">maxconnections</span><span class="o">=</span><span class="mi">512</span><span class="o">**</span>
-<span class="o">**</span><span class="n">listen</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">daemon</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">externalip</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">masternodeaddr</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">bind</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;**</span>
-<span class="o">**</span><span class="n">masternode</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">masternodeprivkey</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="n">rupx</span><span class="o">.</span><span class="n">seeds</span><span class="o">.</span><span class="n">mn</span><span class="o">.</span><span class="n">zone</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="n">rupx</span><span class="o">.</span><span class="n">mnseeds</span><span class="o">.</span><span class="n">com</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">104.248</span><span class="o">.</span><span class="mf">58.227</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">142.93</span><span class="o">.</span><span class="mf">247.186</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">104.238</span><span class="o">.</span><span class="mf">146.167</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">206.189</span><span class="o">.</span><span class="mf">6.102</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">178.128</span><span class="o">.</span><span class="mf">225.48</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">128.199</span><span class="o">.</span><span class="mf">204.114</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">139.59</span><span class="o">.</span><span class="mf">80.208</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">34.221</span><span class="o">.</span><span class="mf">226.22</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">159.89</span><span class="o">.</span><span class="mf">236.115</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">54.71</span><span class="o">.</span><span class="mf">156.120</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">45.55</span><span class="o">.</span><span class="mf">32.108</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">178.238</span><span class="o">.</span><span class="mf">230.212</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">159.65</span><span class="o">.</span><span class="mf">251.235</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">144.202</span><span class="o">.</span><span class="mf">33.21</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">207.246</span><span class="o">.</span><span class="mf">116.61</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">140.82</span><span class="o">.</span><span class="mf">24.203</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-
-<span class="c1">#update the variable after rpcpassword= with a 40 character RPC rpcpassword.</span>
-<span class="c1">#You will need to generate the rpcpassword yourself.</span>
-<span class="c1">#update the variable after externalip= with your Linux VPS IP</span>
-<span class="c1">#update the variable after masternodeaddr= with your Linux VPS IP</span>
-<span class="c1">#update the variable after masternodeprivkey= with your MasterNode private key (GenKey)</span>
-<span class="c1">#You can right click in Putty to paste all of the above into the configuration file.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpcuser</span><span class="o">=</span><span class="n">rupayarpc</span>
+<span class="n">rpcpassword</span><span class="o">=&lt;</span><span class="n">alphanumeric_rpc_password</span><span class="o">&gt;</span>
+<span class="n">rpcport</span><span class="o">=</span><span class="mi">7020</span>
+<span class="n">rpcallowip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">rpcconnect</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">rpcbind</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">maxconnections</span><span class="o">=</span><span class="mi">512</span>
+<span class="n">listen</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">daemon</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">externalip</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">9050</span>
+<span class="n">masternodeaddr</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">9050</span>
+<span class="n">bind</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span>
+<span class="n">masternode</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">masternodeprivkey</span><span class="o">=&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span>
+<span class="n">addnode</span><span class="o">=</span><span class="n">seeds</span><span class="o">.</span><span class="n">rupx</span><span class="o">.</span><span class="n">io</span>
 </pre></div>
 </div>
 </li>
 </ol>
+<ul class="simple">
+<li>Update the variable after rpcpassword= with a 40 character RPC rpcpassword.</li>
+<li>You will need to generate the rpcpassword yourself.</li>
+<li>Update the variable after externalip= with your Linux VPS IP</li>
+<li>Update the variable after masternodeaddr= with your Linux VPS IP</li>
+<li>Update the variable after masternodeprivkey= with your MasterNode private key (GenKey)</li>
+<li>You can right click in Putty to paste all of the above into the configuration file.</li>
+</ul>
 <ol class="arabic simple" id="pastetemplate" start="7">
 <li>Paste the updated template into the rupaya.conf configuration file.</li>
 </ol>
-<ol class="arabic" id="saveconfig" start="8">
-<li><p class="first">Save and exit the file by typing CTRL+X and hit Y + ENTER to save your changes.</p>
-<blockquote>
-<div><p>This is a real example of what the configuration file should look like when you are done updating the variables:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">rpcuser</span><span class="o">=</span><span class="n">rupxuser</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcpassword</span><span class="o">=</span><span class="n">someSUPERsecurePASSWORD3746375620</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcport</span><span class="o">=</span><span class="mi">7020</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcallowip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcconnect</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rpcbind</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">maxconnections</span><span class="o">=</span><span class="mi">512</span><span class="o">**</span>
-<span class="o">**</span><span class="n">listen</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">daemon</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">masternode</span><span class="o">=</span><span class="mi">1</span><span class="o">**</span>
-<span class="o">**</span><span class="n">externalip</span><span class="o">=</span><span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">masternodeaddr</span><span class="o">=</span><span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">masternodeprivkey</span><span class="o">=</span><span class="mi">87</span><span class="n">LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="n">rupx</span><span class="o">.</span><span class="n">seeds</span><span class="o">.</span><span class="n">mn</span><span class="o">.</span><span class="n">zone</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="n">rupx</span><span class="o">.</span><span class="n">mnseeds</span><span class="o">.</span><span class="n">com</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">104.248</span><span class="o">.</span><span class="mf">58.227</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">142.93</span><span class="o">.</span><span class="mf">247.186</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">104.238</span><span class="o">.</span><span class="mf">146.167</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">206.189</span><span class="o">.</span><span class="mf">6.102</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">178.128</span><span class="o">.</span><span class="mf">225.48</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">128.199</span><span class="o">.</span><span class="mf">204.114</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">139.59</span><span class="o">.</span><span class="mf">80.208</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">34.221</span><span class="o">.</span><span class="mf">226.22</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">159.89</span><span class="o">.</span><span class="mf">236.115</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">54.71</span><span class="o">.</span><span class="mf">156.120</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">45.55</span><span class="o">.</span><span class="mf">32.108</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">178.238</span><span class="o">.</span><span class="mf">230.212</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">159.65</span><span class="o">.</span><span class="mf">251.235</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">144.202</span><span class="o">.</span><span class="mf">33.21</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">207.246</span><span class="o">.</span><span class="mf">116.61</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
-<span class="o">**</span><span class="n">addnode</span><span class="o">=</span><span class="mf">140.82</span><span class="o">.</span><span class="mf">24.203</span><span class="p">:</span><span class="mi">9050</span><span class="o">**</span>
+<ol class="arabic simple" id="saveconfig" start="8">
+<li>Save and exit the file by typing <strong>CTRL+X</strong> and hit <strong>Y</strong> + <strong>ENTER</strong> to save your changes.</li>
+</ol>
+<ul>
+<li><p class="first">This is a real example of what the configuration file should look like when you are done updating the variables.</p>
+</li>
+<li><p class="first">The IP address (<cite>199.247.10.25</cite> in this example) will be different for you.</p>
+</li>
+<li><p class="first">Use the <strong>ifconfig</strong> command to find out your VPS IP address.  It is normally the address of the <strong>eth0</strong> interface.</p>
+</li>
+<li><p class="first">Save your VPS IP address as we are going to use this IP and port (9050) again in the Cold wallet setup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rpcuser</span><span class="o">=</span><span class="n">rupxuser</span>
+<span class="n">rpcpassword</span><span class="o">=</span><span class="n">someSUPERsecurePASSWORD3746375620</span>
+<span class="n">rpcport</span><span class="o">=</span><span class="mi">7020</span>
+<span class="n">rpcallowip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">rpcconnect</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">rpcbind</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>
+<span class="n">maxconnections</span><span class="o">=</span><span class="mi">512</span>
+<span class="n">listen</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">daemon</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">masternode</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">externalip</span><span class="o">=</span><span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span>
+<span class="n">masternodeaddr</span><span class="o">=</span><span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span>
+<span class="n">masternodeprivkey</span><span class="o">=</span><span class="mi">87</span><span class="n">LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</span>
+<span class="n">addnode</span><span class="o">=</span><span class="n">seeds</span><span class="o">.</span><span class="n">rupx</span><span class="o">.</span><span class="n">io</span>
 </pre></div>
 </div>
-<p>The IP address (<cite>199.247.10.25</cite> in this example) will be different for you. Use the <cite>ifconfig</cite> command to find out your IP address.  It is normally the address of the <cite>eth0</cite> interface. Save this IP address as we are going to use this IP and port (9050) again in the Cold wallet setup.</p>
-</div></blockquote>
 </li>
-</ol>
+</ul>
 <ol class="arabic" id="stopandstart" start="9">
 <li><p class="first">Stop and restart the Hot wallet.  The following commands will stop the service, wait 2 minutes, and then restart the service:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">**</span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">stop</span> <span class="o">&amp;&amp;</span> <span class="n">sleep</span> <span class="mi">120</span><span class="o">**</span>
-<span class="o">**</span><span class="n">rupayad</span> <span class="o">-</span><span class="n">daemon</span><span class="o">**</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">stop</span> <span class="o">&amp;&amp;</span> <span class="n">sleep</span> <span class="mi">120</span>
+<span class="n">rupayad</span> <span class="o">-</span><span class="n">daemon</span>
 </pre></div>
 </div>
 </li>
@@ -481,7 +455,7 @@ If you are running a VPS from Vultr or similar, you need to use an SSH client, s
 <div class="section" id="verify-the-hot-wallet-is-synchronizing-with-the-blockchain">
 <h2>Verify the Hot wallet is synchronizing with the blockchain<a class="headerlink" href="#verify-the-hot-wallet-is-synchronizing-with-the-blockchain" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic" id="getinfo">
-<li><p class="first">Run th <cite>rupaya-cli getinfo</cite> command to make sure that you see active connections:</p>
+<li><p class="first">Run the <cite>rupaya-cli getinfo</cite> command to make sure that you see active connections:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">getinfo</span>
 </pre></div>
 </div>

@@ -173,7 +173,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Masternodes: Basic Setup</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
@@ -184,13 +184,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="verifymnstarted.html">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -264,8 +266,8 @@
             
   <div class="section" id="setup-overview">
 <span id="setupoverview"></span><h1>Setup Overview<a class="headerlink" href="#setup-overview" title="Permalink to this headline">¶</a></h1>
-<p>This guide will walk you through the bare minimum steps required to setup a Rupaya MasterNode on a Linux server and to setup a Cold Wallet on a Windows or Mac computer.  This guide is intended for those that want to get the MasterNode up and running without configuring additional security measures or best practices.  For those that want to take the time to configure additional security measures and best practices, we recommend using the Advanced Setup Guide.</p>
-<p>This guide assumes that you have a basic understanding of how to navigate the Linux OS for the setup of the MasterNode.  This guide also assumes that you have an understanding of either a Windows or Mac OS for the setup of the Cold Wallet.</p>
+<p>This guide will walk you through the bare minimum steps required to setup a Rupaya MasterNode on a Linux server and to setup a Cold Wallet on a Windows or Mac computer.</p>
+<p>This guide assumes that you have a basic understanding of how to navigate the Linux OS for the setup of the MasterNode, and that you have an understanding of either a Windows or Mac OS for the setup of the Cold Wallet.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">It’s very common in this industry for scammers to offer “help” via remote screen sharing (TeamViewer, Skype, Zoom, WebEx, etc).  They will use nicknames like <cite>MasterNode Helper</cite>, <cite>MasterNode Support</cite>, <cite>Cryptopia Support</cite> and will be very nice and helpful to you. At least until they manage to run a command like <cite>dumpprivkey</cite>, <cite>sendtoaddress</cite> and your funds will be gone, adios, sayonara.  Please be aware and stay safe!</p>
@@ -288,17 +290,16 @@
 <li>The Cold wallet is used to both enable the MasterNode server and to collect the rewards for its’ services.</li>
 <li>The Cold wallet is normally run at home, behind a firewall, on a Windows, OSX or Linux computer.</li>
 <li>After the MasterNode is enabled, the Cold wallet can even be run without direct connectivity from the internet, making it a more secure wallet.</li>
-<li>Once the MasterNode is enabled and verified as working, the Cold wallet can then be closed and the MasterNode rewards will still show up the next time the wallet is started and synced.</li>
+<li>Once the MasterNode is enabled and verified as working, the Cold wallet can then be closed and the MasterNode rewards will still show up the next time the wallet is started and synchronized.</li>
 </ul>
 </div></blockquote>
-<div class="section" id="running-a-masternode-on-a-home-computer-is-a-bad-idea">
-<span id="dont-do-this-at-home"></span><h2>Running a MasterNode on a home computer is a bad idea<a class="headerlink" href="#running-a-masternode-on-a-home-computer-is-a-bad-idea" title="Permalink to this headline">¶</a></h2>
-<p>Some people, including me at some point, want to save a few bucks and run a MasterNode at home on a retired PC or Laptop collecting dust. Good idea?  <strong>NO</strong></p>
-<p>Here’s why:</p>
+<div class="section" id="running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">
+<span id="dont-do-this-at-home"></span><h2>Running a MasterNode Hot wallet on a home computer is a bad idea<a class="headerlink" href="#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea" title="Permalink to this headline">¶</a></h2>
+<p>Some people want to save a few bucks and run a MasterNode Hot wallet at home on a retired PC or Laptop. Here’s why that is not a good idea:</p>
 <ul class="simple">
 <li>The purpose of a MasterNode is to be a highly available system that is always reachable, has low network latency, and high bandwidth. These are rarely found in the average home.</li>
 <li>Static IP addresses are also harder to get for residential users or they cost extra money.</li>
-<li>You could loose important MasterNode rewards if your node loses connectivity due to an Internet outage.</li>
+<li>You could loose out on MasterNode rewards if your node loses connectivity due to an Internet outage.</li>
 <li>Running old PCs and Laptops at home also costs energy, creates noise and they can be a fire risk when running 24/7.</li>
 <li>Your IP address can be traced back to your home, therefore it is unsafe. This gives potential thieves and hackers a target.</li>
 </ul>

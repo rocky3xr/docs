@@ -2,6 +2,8 @@
 .. |br| raw:: html
 
    <br />
+
+.. _basicsetup:
    
 ========================
 VPS and Hot wallet Setup
@@ -21,7 +23,7 @@ This server and wallet will run 24/7 and provides services to the network via TC
 	
 1. :ref:`Install the Rupaya Hot wallet on the VPS<downloadwallet>`
 2. :ref:`Start the Hot wallet service<startservice>`
-3. :ref:`Generate the masternode private key (aka GenKey)<generategenkey>`
+3. :ref:`Generate the MasterNode private key (aka GenKey)<generategenkey>`
 4. :ref:`Copy and save the MasterNode private key<savegenkey>`
 5. :ref:`Edit the Hot wallet configuration file (/root/.rupayacore/rupaya.conf)<editconfig>`
 6. :ref:`Copy the rupaya.conf template and update the configuration data accordingly<copyconfig>`
@@ -31,8 +33,8 @@ This server and wallet will run 24/7 and provides services to the network via TC
 	
 **Verify the Hot wallet is synchronizing with the blockchain**
 	
-1. :ref:`Run the **rupaya-cli getinfo** command to make sure that you see active connections<getinfo>`
-2. :ref:`Run the **rupaya-cli getblockcount** command every few mins until you see the blocks increasing<blockcount>`
+1. :ref:`Run the rupaya-cli getinfo command to make sure that you see active connections<getinfo>`
+2. :ref:`Run the rupaya-cli getblockcount command every few mins until you see the blocks increasing<blockcount>`
 
 Order and setup a Linux VPS
 ---------------------------
@@ -90,8 +92,8 @@ Download and Configure the Rupaya Hot wallet
 
 1. Install the Rupaya Hot wallet on the VPS.  Download and unpack the Rupaya wallet binaries by running the following commands::
 
-	wget https://s3-us-west-2.amazonaws.com/rupayax/75.1/linux-x64.tar.gz	
-	sudo tar xvzf linux-x64.tar.gz -C /usr/local/bin/
+	wget https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-linux-64bit.tar.gz
+	sudo tar xvzf rupayaqt-linux-64bit.tar.gz -C /usr/local/bin/
 	
 .. _startservice:
 	
@@ -121,45 +123,28 @@ Download and Configure the Rupaya Hot wallet
 	
 6. Copy the rupaya.conf template and update the configuration data accordingly.  All variables that need to be updated manually are identified with the <> symbols around them::
 	
-	**rpcuser=rupayarpc** 
-	**rpcpassword=<alphanumeric_rpc_password>** 
-	**rpcport=7020** 
-	**rpcallowip=127.0.0.1** 
-	**rpcconnect=127.0.0.1** 
-	**rpcbind=127.0.0.1** 
-	**maxconnections=512** 
-	**listen=1** 
-	**daemon=1** 
-	**externalip=<public_mn_ip_address_here>:9050** 
-	**masternodeaddr=<public_mn_ip_address_here>:9050** 
-	**bind=<public_mn_ip_address_here>** 
-	**masternode=1** 
-	**masternodeprivkey=<public_mn_ip_address_here>** 
-	**addnode=rupx.seeds.mn.zone** 
-	**addnode=rupx.mnseeds.com** 
-	**addnode=104.248.58.227:9050** 
-	**addnode=142.93.247.186:9050** 
-	**addnode=104.238.146.167:9050** 
-	**addnode=206.189.6.102:9050** 
-	**addnode=178.128.225.48:9050** 
-	**addnode=128.199.204.114:9050** 
-	**addnode=139.59.80.208:9050** 
-	**addnode=34.221.226.22:9050** 
-	**addnode=159.89.236.115:9050** 
-	**addnode=54.71.156.120:9050** 
-	**addnode=45.55.32.108:9050** 
-	**addnode=178.238.230.212:9050** 
-	**addnode=159.65.251.235:9050** 
-	**addnode=144.202.33.21:9050** 
-	**addnode=207.246.116.61:9050** 
-	**addnode=140.82.24.203:9050** 
-
-	#update the variable after rpcpassword= with a 40 character RPC rpcpassword.  
-	#You will need to generate the rpcpassword yourself. 
-	#update the variable after externalip= with your Linux VPS IP 
-	#update the variable after masternodeaddr= with your Linux VPS IP 
-	#update the variable after masternodeprivkey= with your MasterNode private key (GenKey) 
-	#You can right click in Putty to paste all of the above into the configuration file.
+	rpcuser=rupayarpc 
+	rpcpassword=<alphanumeric_rpc_password> 
+	rpcport=7020 
+	rpcallowip=127.0.0.1 
+	rpcconnect=127.0.0.1 
+	rpcbind=127.0.0.1 
+	maxconnections=512 
+	listen=1 
+	daemon=1 
+	externalip=<public_mn_ip_address_here>:9050 
+	masternodeaddr=<public_mn_ip_address_here>:9050 
+	bind=<public_mn_ip_address_here> 
+	masternode=1 
+	masternodeprivkey=<public_mn_ip_address_here> 
+	addnode=seeds.rupx.io
+	
+* Update the variable after rpcpassword= with a 40 character RPC rpcpassword.
+* You will need to generate the rpcpassword yourself. 
+* Update the variable after externalip= with your Linux VPS IP 
+* Update the variable after masternodeaddr= with your Linux VPS IP 
+* Update the variable after masternodeprivkey= with your MasterNode private key (GenKey) 
+* You can right click in Putty to paste all of the above into the configuration file.
 
 .. _pastetemplate:
 
@@ -167,57 +152,41 @@ Download and Configure the Rupaya Hot wallet
 
 .. _saveconfig:
 
-8. Save and exit the file by typing CTRL+X and hit Y + ENTER to save your changes.
+8. Save and exit the file by typing **CTRL+X** and hit **Y** + **ENTER** to save your changes.
 
-	This is a real example of what the configuration file should look like when you are done updating the variables::
+* This is a real example of what the configuration file should look like when you are done updating the variables.
+* The IP address (`199.247.10.25` in this example) will be different for you. 
+* Use the **ifconfig** command to find out your VPS IP address.  It is normally the address of the **eth0** interface. 
+* Save your VPS IP address as we are going to use this IP and port (9050) again in the Cold wallet setup::
 	
-	**rpcuser=rupxuser** 
-	**rpcpassword=someSUPERsecurePASSWORD3746375620** 
-	**rpcport=7020** 
-	**rpcallowip=127.0.0.1** 
-	**rpcconnect=127.0.0.1** 
-	**rpcbind=127.0.0.1** 
-	**maxconnections=512** 
-	**listen=1** 
-	**daemon=1** 
-	**masternode=1** 
-	**externalip=199.247.10.25:9050** 
-	**masternodeaddr=199.247.10.25:9050** 
-	**masternodeprivkey=87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK** 
-	**addnode=rupx.seeds.mn.zone** 
-	**addnode=rupx.mnseeds.com** 
-	**addnode=104.248.58.227:9050** 
-	**addnode=142.93.247.186:9050** 
-	**addnode=104.238.146.167:9050** 
-	**addnode=206.189.6.102:9050** 
-	**addnode=178.128.225.48:9050** 
-	**addnode=128.199.204.114:9050** 
-	**addnode=139.59.80.208:9050** 
-	**addnode=34.221.226.22:9050** 
-	**addnode=159.89.236.115:9050** 
-	**addnode=54.71.156.120:9050** 
-	**addnode=45.55.32.108:9050** 
-	**addnode=178.238.230.212:9050** 
-	**addnode=159.65.251.235:9050** 
-	**addnode=144.202.33.21:9050** 
-	**addnode=207.246.116.61:9050** 
-	**addnode=140.82.24.203:9050**
-
-	The IP address (`199.247.10.25` in this example) will be different for you. Use the `ifconfig` command to find out your IP address.  It is normally the address of the `eth0` interface. Save this IP address as we are going to use this IP and port (9050) again in the Cold wallet setup. 
-
+	rpcuser=rupxuser 
+	rpcpassword=someSUPERsecurePASSWORD3746375620 
+	rpcport=7020 
+	rpcallowip=127.0.0.1 
+	rpcconnect=127.0.0.1 
+	rpcbind=127.0.0.1 
+	maxconnections=512 
+	listen=1 
+	daemon=1 
+	masternode=1 
+	externalip=199.247.10.25:9050 
+	masternodeaddr=199.247.10.25:9050 
+	masternodeprivkey=87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK 
+	addnode=seeds.rupx.io 
+	
 .. _stopandstart:
 
 9. Stop and restart the Hot wallet.  The following commands will stop the service, wait 2 minutes, and then restart the service::
 
-	**rupaya-cli stop && sleep 120** 
-	**rupayad -daemon**
+	rupaya-cli stop && sleep 120 
+	rupayad -daemon
 	
 Verify the Hot wallet is synchronizing with the blockchain
 ----------------------------------------------------------
 
 .. _getinfo:
 
-1. Run th `rupaya-cli getinfo` command to make sure that you see active connections::
+1. Run the `rupaya-cli getinfo` command to make sure that you see active connections::
 	
 	rupaya-cli getinfo
 	
