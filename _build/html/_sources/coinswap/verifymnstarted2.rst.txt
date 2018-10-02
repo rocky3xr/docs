@@ -1,4 +1,4 @@
-.. _verifymnstarted:
+.. _verifymnstarted2:
 
 =====================================================
 Verify the MasterNode Hot Wallet Started Successfully

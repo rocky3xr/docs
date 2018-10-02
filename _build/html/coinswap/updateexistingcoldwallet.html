@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Upgrade an Existing MasterNode VPS Hot Wallet &mdash; Rupaya 5.0 documentation</title>
+  <title>Update an Existing MasterNode Cold Wallet &mdash; Rupaya 5.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Update an Existing MasterNode Cold Wallet" href="updateexistingcoldwallet.html" />
-    <link rel="prev" title="Swap Bot - Steps to Perform the Coin Swap" href="swapbotsteps.html" />
+    <link rel="next" title="Verify the MasterNode Hot Wallet Started Successfully" href="verifymnstarted2.html" />
+    <link rel="prev" title="Upgrade an Existing MasterNode VPS Hot Wallet" href="upgradeexistingmn.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Rupaya Core Team" />
     <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
@@ -168,12 +168,12 @@
 <li class="toctree-l3"><a class="reference internal" href="swapbotsteps.html#detailed-instructions">Detailed Instructions</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updateexistingcoldwallet.html">Update an Existing MasterNode Cold Wallet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#implementation-steps">Implementation Steps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">Create a MN1 Wallet Address and send it the required burn coins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Update an Existing MasterNode Cold Wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-steps">Implementation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">Create a MN1 Wallet Address and send it the required burn coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
@@ -254,13 +254,13 @@
         
           <li><a href="index.html">Rupaya Core - Coin Swap Procedures</a> &raquo;</li>
         
-      <li>Upgrade an Existing MasterNode VPS Hot Wallet</li>
+      <li>Update an Existing MasterNode Cold Wallet</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/coinswap/upgradeexistingmn.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/coinswap/updateexistingcoldwallet.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -273,142 +273,153 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="upgrade-an-existing-masternode-vps-hot-wallet">
-<span id="upgradehotwallet"></span><span id="upgradeexistingmn"></span><h1>Upgrade an Existing MasterNode VPS Hot Wallet<a class="headerlink" href="#upgrade-an-existing-masternode-vps-hot-wallet" title="Permalink to this headline">¶</a></h1>
-<p>These instructions are intended for those that are already running a MasterNode and want to upgrade an existing VPS with the new Rupaya Core 5 wallet.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">We created this process for those of you that want to continue to use the same VPS.  However, there is some minor risk involved as you may need to reboot the VPS during this process.  If you are running MasterNodes from other coins on this same VPS then those MasterNodes may be impacted by the VPS reboots.  To prevent the possible impact to the other MasterNodes you are running on this VPS, we suggest doing a fresh install, on a new VPS. <a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#basicsetup"><span class="std std-ref">Link to VPS and Hot wallet basic setup guide</span></a></p>
-</div>
-<ol class="arabic">
-<li><p class="first">Login to the VPS provider website and update the external firewall ports to allow TCP port 9050 from all sources instead of port 9020.  You can edit the existing rule and change the port from 9020 to 9050.</p>
-<blockquote>
-<div><ul class="simple">
-<li><strong>NOTE: This is not necessary for Virmach VPS users since they do not provide an external firewall.</strong></li>
+  <div class="section" id="update-an-existing-masternode-cold-wallet">
+<span id="updateexistingcoldwallet"></span><h1>Update an Existing MasterNode Cold Wallet<a class="headerlink" href="#update-an-existing-masternode-cold-wallet" title="Permalink to this headline">¶</a></h1>
+<p>These instructions are intended for those that were already running a MasterNode Cold wallet and want to update the existing wallet to start running the MasterNode again.</p>
+<dl class="docutils">
+<dt><strong>Prerequisites:</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="walletinstall.html#installnewwallet"><span class="std std-ref">Install the New Rupaya Core 5 Wallet</span></a></li>
+<li><a class="reference internal" href="upgradeexistingmn.html#upgradehotwallet"><span class="std std-ref">Upgrade an Existing MasterNode VPS Hot Wallet</span></a></li>
 </ul>
-</div></blockquote>
-</li>
-<li><p class="first">Use Putty (PC) or Terminal (MAC) to login to the Linux VPS that is running the Rupaya Hot wallet.</p>
-</li>
-<li><p class="first">Login as the user that you used to install the wallet.  Below are some of the possible usernames you may have used, depending on which installation guide you followed:</p>
+</dd>
+</dl>
+<div class="section" id="implementation-steps">
+<h2>Implementation Steps<a class="headerlink" href="#implementation-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#createmnaddressexisting"><span class="std std-ref">Create a receiving address for the MasterNode collateral funds</span></a></li>
+<li><a class="reference internal" href="#sendburncoins-updateexisting"><span class="std std-ref">Send EXACTLY 20000 RUPX coins to the MN1 address</span></a></li>
+<li><a class="reference internal" href="#opendebugconsole-updateexisting"><span class="std std-ref">Open the debug console of the wallet in order to type a few commands</span></a></li>
+<li><a class="reference internal" href="#outputtxhash-updateexisting"><span class="std std-ref">Run the masternode outputs command to retrieve the transaction ID of the collateral transfer</span></a></li>
+<li><a class="reference internal" href="#copysavetxhash-updateexisting"><span class="std std-ref">Copy and save the txhash and outputidx</span></a></li>
+<li><a class="reference internal" href="#masternodeconf-updateexisting"><span class="std std-ref">Go to Tools -&gt; Open MasterNode Configuration File and add a line in the newly opened masternode.conf file</span></a></li>
+<li><a class="reference internal" href="#restartcoldwallet-updateexisting"><span class="std std-ref">Restart the Cold wallet to pick up the masternode.conf changes</span></a></li>
+<li><a class="reference internal" href="#listconf-updateexisting"><span class="std std-ref">Open the Debug console to verify that the output from the masternode list-conf command`</span></a></li>
+<li><a class="reference internal" href="#masternodetab-updateexisting"><span class="std std-ref">Go to the MasterNodes tab and check if your newly added masternode is listed</span></a></li>
+<li><a class="reference internal" href="#startmasternode-updateexisting"><span class="std std-ref">Run the startmasternode alias false MN1 command, in the Cold Wallet debug console, in order to enable the MasterNode</span></a></li>
+</ol>
+</div>
+<div class="section" id="create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">
+<h2>Create a MN1 Wallet Address and send it the required burn coins<a class="headerlink" href="#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic" id="createmnaddressexisting">
+<li><p class="first">Create a receiving address for the MasterNode collateral funds.</p>
 <blockquote>
 <div><ul class="simple">
-<li>root (github)</li>
-<li>rupxmn (<a class="reference external" href="http://rupx.center/mnode">http://rupx.center/mnode</a>)</li>
-<li>rupx01 (GoodTimes setup guide)</li>
-</ul>
-<p>Note: These instructions will assume that you did not use root as the default user and therefore provides the commands starting with sudo to allow the commands to run with root privileges.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Stop the current wallet daemon with the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">stop</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Display the contents of your existing rupaya.conf file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">rupaya</span><span class="o">/</span><span class="n">rupaya</span><span class="o">.</span><span class="n">conf</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Copy the contents of the rupaya.conf file and paste it into a text editor so you can easily update the necessary fields.</p>
-</li>
-<li><p class="first">In the text editor, update the following information to start using port 9050 instead of 9020:</p>
-<blockquote>
-<div><ul class="simple">
-<li>On the line <strong>externalip=</strong> change port 9020 to the new port 9050</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Save the text file to be sure you don’t lose any of the data during the process.</p>
-</li>
-<li><p class="first">Back on the VPS, delete the existing rupayad daemon from the <strong>/usr/local/bin</strong> directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rupayad</span>
-<span class="n">sudo</span> <span class="n">rm</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span>
-<span class="n">sudo</span> <span class="n">rm</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rupaya</span><span class="o">-</span><span class="n">qt</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Delete the existing ~/.rupaya folders:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">~/.</span><span class="n">rupaya</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Update the internal firewall to allow TCP port 9050 and to block 9020:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">9050</span><span class="o">/</span><span class="n">tcp</span>
-<span class="n">sudo</span> <span class="n">ufw</span> <span class="n">deny</span> <span class="mi">9020</span><span class="o">/</span><span class="n">tcp</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Download the new wallet and extract it to the <strong>/usr/local/bin</strong> directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rupaya</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">rupx</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v5</span><span class="o">.</span><span class="mf">0.25</span><span class="o">/</span><span class="n">rupayaqt</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="n">bit</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">sudo</span> <span class="n">tar</span> <span class="n">xvzf</span> <span class="n">rupayaqt</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="n">bit</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first"><strong>OPTIONAL STEP:</strong> The following steps (13A - 13C) are optional.  These steps are strongly recommended for those that want to implement security best practices.  These steps are recommended so that the Hot wallet is not installed under the root user account.</p>
-<blockquote>
-<div><ul class="simple">
-<li>In these steps you will create a new user named <strong>rupxmn</strong>, set a password, grant that user root access, and login as the new user.</li>
-<li>All advanced Rupaya setup guides will assume that you used <strong>rupxmn</strong> as your user.</li>
-<li>For those of you that want to continue to use <strong>root</strong> as your user instead of <strong>rupxmn</strong>, you can skip ahead to step 14.</li>
+<li>Go to <strong>File -&gt; Receiving addresses</strong></li>
+<li>Click <strong>New</strong>, type in a label and press <strong>Ok</strong>.</li>
+<li>Select the row of the newly added address and click <strong>Copy</strong> to store the destination address in the clipboard.</li>
+<li>You can name the wallet with a description such as “<strong>MN1</strong>” by right clicking it and selecting <strong>Edit</strong>.</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
-<p>13A. Create a new user named <strong>rupxmn</strong> and assign a password to the new user:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">useradd</span> <span class="o">-</span><span class="n">m</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="n">rupxmn</span>
-<span class="n">passwd</span> <span class="n">rupxmn</span>
-</pre></div>
-</div>
-<p><strong>Type in a new password, as you are prompted, two times.  Be sure to save this password somewhere safe, as you will need it to manage the VPS Hot wallet.</strong></p>
-<p>13B. Grant root access to the new user rupxmn:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">sudo</span> <span class="n">rupxmn</span>
-</pre></div>
-</div>
-<p>13C. Login as the new user:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">login</span> <span class="n">rupxmn</span>
-</pre></div>
-</div>
-<ol class="arabic" start="14">
-<li><p class="first">Install the new wallet by running the <strong>rupayad -daemon</strong> command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupayad</span> <span class="o">-</span><span class="n">daemon</span>
-</pre></div>
-</div>
+<ol class="arabic" id="sendburncoins-updateexisting" start="2">
+<li><p class="first">Send EXACTLY 20000 RUPX coins to the MN1 wallet address. Double check you’ve got the correct address before transferring the funds.</p>
+<blockquote>
+<div><p>After sending, you can verify the balance in the Transactions tab. This can take <strong>a few minutes</strong> to be confirmed by the network. Go get a glass of water. No alcoholic beverages please, we are not out of the woods yet.</p>
+</div></blockquote>
 </li>
-<li><p class="first">Generate a new MasterNode Private Key (aka GenKey):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">masternode</span> <span class="n">genkey</span>
-</pre></div>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are sending from an exchange, make sure you account for the withdrawal fee so that you get EXACTLY EXACTLY EXACTLY 20000 RUPX in the new wallet address. This is a common error that will cause the next step to not give you the transaction id that is needed. For example, to withdraw from <cite>Stocks.Exchange</cite> the correct ammount for a MasterNode, you need to specify the ammount of <strong>20000.001</strong> to account for the fee.</p>
 </div>
+</div>
+<div class="section" id="output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">
+<h2>Output your MN TXhash and Outputidx and update the MasterNode configuration file<a class="headerlink" href="#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic" id="opendebugconsole-updateexisting" start="3">
+<li><p class="first">Open the Debug console of the wallet in order to type a few commands.</p>
+<blockquote>
+<div><p>Go to <strong>Tools -&gt; Debug console</strong></p>
+</div></blockquote>
 </li>
-<li><p class="first">Copy the outputted GenKey and paste it in the text editor, overwriting the old GenKey, with the new one you just copied, on the line <strong>masternodeprivkey=</strong></p>
-</li>
-<li><p class="first">Edit the new rupaya.conf file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">~/.</span><span class="n">rupayacore</span><span class="o">/</span><span class="n">rupaya</span><span class="o">.</span><span class="n">conf</span>
+</ol>
+<ol class="arabic" id="outputtxhash-updateexisting" start="4">
+<li><p class="first">Run the <strong>masternode outputs</strong> command to retrieve the transaction ID of the collateral transfer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masternode</span> <span class="n">outputs</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Copy the contents from the text editor, that you copied from the old rupaya.conf file, and paste all of the lines into the new rupaya.conf file.</p>
+</ol>
+<ul>
+<li><p class="first">You should see an output that looks like this in the Debug console:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&quot;txhash&quot; : &quot;c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487&quot;,&#39;</span>
+<span class="s1">&#39;&quot;outputidx&quot; : 1&#39;</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">Close the file and save it by hitting <strong>Ctrl-X</strong>, and then type <strong>Y</strong> to confirm that you want to save it, and then hit <strong>ENTER</strong> to confirm the file name.</p>
+</ul>
+<p><strong>NOTE: If you do not get output resembling the above example then you likely do not have EXACTLY 20000 RUPX in the MN1 wallet address.  You will need to resolve this issue and ensure that ONLY and EXACTLY 20000 RUPX is in the MN1 address and that it is in a single input.</strong></p>
+<ol class="arabic simple" id="copysavetxhash-updateexisting" start="5">
+<li>Copy and save the <cite>txhash</cite> and <cite>outputidx</cite>.  Both the <cite>txhash</cite> and <cite>outputidx</cite> will be used in the next step. The <cite>outputidx</cite> will be either a <cite>0</cite> or <cite>1</cite>, both are valid values.</li>
+</ol>
+<ol class="arabic simple" id="masternodeconf-updateexisting" start="6">
+<li>Go to <cite>Tools</cite> -&gt; <cite>Open MasterNode Configuration File</cite> and add a line in the newly opened <cite>masternode.conf</cite> file.  If you get prompted to choose a program, select a text editor like Notepad/TextEdit to open it.</li>
+</ol>
+<ul>
+<li><p class="first">These are the default directories for the Rupaya data directory where this file is stored:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mac</span><span class="p">:</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Application</span> <span class="n">Support</span><span class="o">/</span><span class="n">Rupaya</span>
+<span class="n">Windows</span><span class="p">:</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Rupayacore</span>
+</pre></div>
+</div>
 </li>
-<li><p class="first">Stop and restart the wallet deamon:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">stop</span> <span class="o">&amp;&amp;</span> <span class="n">sleep</span> <span class="mi">60</span> <span class="o">&amp;&amp;</span> <span class="n">rupayad</span> <span class="o">-</span><span class="n">daemon</span>
+<li><p class="first">Below is an example of what you need in the <cite>masternode.conf</cite> file, all on a single line with no carriage returns.  The file contains an example that is commented out(with a <strong>#</strong> symbol in front). Read it for reference. Based on the output example from the <strong>masternode outputs</strong> command, you would add this line in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MN1</span> <span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span> <span class="mi">87</span><span class="n">LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</span> <span class="n">c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>MN1</strong> is the node’s alias.</p>
+</li>
+<li><p class="first"><strong>199.247.10.25</strong> is the external IP of the masternode server that will provide services to the network.</p>
+</li>
+<li><p class="first"><strong>87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</strong> is your masternode private key (aka GenKey), which is the value used for <cite>masternodeprivkey=</cite> in <strong>/root/.rupayacore/rupaya.conf</strong>.</p>
+</li>
+<li><p class="first"><strong>c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487</strong> is your TXhash from <cite>masternode outputs</cite>.</p>
+</li>
+<li><p class="first"><strong>1</strong> is your ‘outputidx’ (aka Index) from <cite>masternode outputs</cite>.</p>
+</li>
+</ul>
+<ol class="arabic simple" id="restartcoldwallet-updateexisting" start="7">
+<li>Restart the Cold wallet to pick up the <cite>masternode.conf</cite> changes.</li>
+</ol>
+<ol class="arabic" id="listconf-updateexisting" start="8">
+<li><p class="first">Open the Debug console (Open <strong>Tools &gt; Debug console</strong>) and run the command <strong>masternode list-conf</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masternode</span> <span class="nb">list</span><span class="o">-</span><span class="n">conf</span>
 </pre></div>
 </div>
 </li>
 </ol>
 <ul class="simple">
-<li>NOTE: If you get the error “<strong>error: couldn’t connect to server</strong>” then you may need to kill the process manually or reboot the VPS and then restart the wallet with the <strong>rupayad -daemon</strong> command.</li>
+<li>Verify that the output matches what you entered in the <cite>masternode.conf</cite> file.</li>
 </ul>
-<ol class="arabic" start="21">
-<li><p class="first">Run the <strong>ps -ef |grep rupaya</strong> command to verify that the daemon is indeed running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span><span class="n">grep</span> <span class="n">rupaya</span>
+<ol class="arabic" id="masternodetab-updateexisting" start="9">
+<li><p class="first">Go to the ‘Masternodes’ tab and check if your newly added masternode is listed.</p>
+<blockquote>
+<div><p>You should now see the newly added MasterNode with a status of <cite>MISSING</cite>.
+If you want to control multiple MasterNode Hot wallets from this Cold wallet, you will need to repeat steps 1-7. The <cite>masternode.conf</cite> file will contain an entry for each masternode that will be added to the network.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="starting-the-mn-from-the-cold-wallet">
+<h2>Starting the MN from the Cold Wallet<a class="headerlink" href="#starting-the-mn-from-the-cold-wallet" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">It is very important that you let the MasterNode Hot wallet synchronize for a couple of hours prior to starting it from the Cold wallet.  If you attempt to start it before it is fully synchronized then it will fail.</p>
+</div>
+<ol class="arabic" id="startmasternode-updateexisting" start="10">
+<li><p class="first">Run the <strong>startmasternode alias false MN1</strong> command, in the Cold wallet Debug console, in order to enable the MasterNode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">startmasternode</span> <span class="n">alias</span> <span class="n">false</span> <span class="n">MN1</span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>NOTE: You should get output showing that the <strong>rupayad -daemon</strong> is running.  If you only see one single line that contains this output “<strong>grep –color=auto rupaya</strong>” then the daemon is not actually running.  In this case, you may need to restart the VPS and then run the <strong>rupayad -daemon</strong> command to start the daemon successfully.</p>
-<p><strong>Once the rupayad -daemon service is confirmed as running, the setup of your new VPS and Hot wallet is complete.  Please proceed to the next step to set up the Cold Wallet on your computer.</strong></p>
+<ul class="simple">
+<li>NOTE: In the example above, the alias of my MasterNode was MN1. In your case, it might be different and is based on what you entered as the first word in the masternode.conf file.</li>
+<li>NOTE: You should get multiple lines of output.  If one of the lines of output says <strong>“result” : successful”</strong> then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  If you did not get the <strong>successful</strong> output then there is likely an issue with the masternode.conf file that needs to be resolved first.</li>
+</ul>
+<p><strong>If you received the output that shows the MasterNode started successfully then you can proceed to the next step to verify that your MasterNode started correctly from the VPS Hot wallet.</strong></p>
+</div>
 </div>
 
 
@@ -419,10 +430,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="updateexistingcoldwallet.html" class="btn btn-neutral float-right" title="Update an Existing MasterNode Cold Wallet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="verifymnstarted2.html" class="btn btn-neutral float-right" title="Verify the MasterNode Hot Wallet Started Successfully" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="swapbotsteps.html" class="btn btn-neutral" title="Swap Bot - Steps to Perform the Coin Swap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="upgradeexistingmn.html" class="btn btn-neutral" title="Upgrade an Existing MasterNode VPS Hot Wallet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

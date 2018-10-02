@@ -73,15 +73,15 @@ CryptoBridge
   Information on CryptoBridge
 
 
-Stocks.Exchange
-  .. image:: exchanges/stocksexchange.png
+STEX
+  .. image:: exchanges/STEX-logo.jpg
      :width: 200px
      :align: right
-     :target: https://www.stocks.exchange/
+     :target: https://www.stex.com/
 
-  https://www.stocks.exchange/
+  https://www.stex.com/
 
-  Information on Stocks Exchange
+  Information on STEX (Formally Stocks Exchange)
 
 
 CryptoHub
@@ -93,28 +93,6 @@ CryptoHub
   https://cryptohub.online/
 
   Information on CryptoHub
-
-
-qTrade
-  .. image:: exchanges/qtrade.png
-     :width: 75px
-     :align: right
-     :target: https://qtrade.io/
-
-  https://qtrade.io/
-
-  Information on qTrade
-
-
-TradeSatoshi
-  .. image:: exchanges/TradeSatoshi.png
-     :width: 150px
-     :align: right
-     :target: https://tradesatoshi.com/
-
-  https://tradesatoshi.com/
-
-  Information on TradeSatoshi
 
 
 Graviex

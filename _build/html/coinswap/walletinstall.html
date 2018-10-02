@@ -169,28 +169,39 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updateexistingcoldwallet.html">Update an Existing MasterNode Cold Wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#implementation-steps">Implementation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">Create a MN1 Wallet Address and send it the required burn coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_basic/index.html">Masternodes: Basic Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#order-and-setup-a-linux-vps">Order and setup a Linux VPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#create-a-new-user-and-login-as-rupxmn">Create a New User and Login as rupxmn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#download-and-configure-the-rupaya-hot-wallet">Download and Configure the Rupaya Hot wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#verify-the-hot-wallet-is-synchronizing-with-the-blockchain">Verify the Hot wallet is synchronizing with the blockchain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -263,7 +274,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="install-the-new-rupaya-core-5-wallet">
-<h1>Install the New Rupaya Core 5 Wallet<a class="headerlink" href="#install-the-new-rupaya-core-5-wallet" title="Permalink to this headline">¶</a></h1>
+<span id="installnewwallet"></span><h1>Install the New Rupaya Core 5 Wallet<a class="headerlink" href="#install-the-new-rupaya-core-5-wallet" title="Permalink to this headline">¶</a></h1>
 <p>These instructions are intended for those that are installing the new Rupaya Core 5 wallet on your personal Windows or Mac computer.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -276,17 +287,21 @@
 </div></blockquote>
 </li>
 <li><p class="first">Delete the old Rupaya directory, if the computer contains the old Rupaya wallet:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Mac</span><span class="p">:</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Application</span> <span class="n">Support</span><span class="o">/</span><span class="n">Rupaya</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Mac</span><span class="p">:</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Application</span> <span class="n">Support</span><span class="o">/</span><span class="n">Rupayacore</span>
 <span class="o">*</span> <span class="n">Windows</span><span class="p">:</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Rupaya</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Use one of the following links to download the appropriate wallet version for your system:</p>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not delete the current wallet directory if the existing wallet still has coins in it.  You should be doing this install on a computer that does not currently have a Rupaya wallet that contains coins.</p>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">Open the following URL in a web browser to download the appropriate wallet version for your system:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference external" href="https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-windows-64bit.zip">Windows_64bit</a></li>
-<li><a class="reference external" href="https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-windows-32bit.zip">Windows_x86</a></li>
-<li><a class="reference external" href="https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-linux-64bit.tar.gz">Linxu_64bit</a></li>
+<li><a class="reference external" href="https://github.com/rupaya-project/rupx/releases">https://github.com/rupaya-project/rupx/releases</a></li>
 </ul>
 </div></blockquote>
 </li>
@@ -298,10 +313,6 @@
 </div></blockquote>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Do not overwrite the current wallet if the existing wallet still has coins in it.  You should be doing this install on a computer that does not currently have a Rupaya wallet with coins in it.</p>
-</div>
 <p>5.Double click the Rupaya-qt file to install the new wallet.</p>
 <blockquote>
 <div><ul class="simple">
@@ -312,15 +323,20 @@
 <li>The new wallet should now open and begin to synchronize with the network</li>
 </ul>
 </div></blockquote>
+<p>NOTE: If the wallet is not synchronizing, then add the following line into the rupaya.conf configuration file <strong>(Tools &gt; Open Wallet Configuration File)</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addnode</span><span class="o">=</span><span class="n">seeds</span><span class="o">.</span><span class="n">rupx</span><span class="o">.</span><span class="n">io</span>
+</pre></div>
+</div>
+<p>NOTE: The file should be blank by default.  <strong>Be sure to restart the wallet every time you update the configuration file.</strong></p>
 <div class="section" id="documenting-your-new-wallet-address">
 <h2>Documenting Your New Wallet Address<a class="headerlink" href="#documenting-your-new-wallet-address" title="Permalink to this headline">¶</a></h2>
-<p>Now that the new Rupaya Core 5 wallet is installed, you will need to document your new wallet address to prepare for the coin swap with the Swap Bot.</p>
+<p>Now that the new Rupaya Core 5 wallet is installed, you need to document your new wallet address to prepare for the coin swap with the Swap Bot.</p>
 <ol class="arabic">
 <li><p class="first">Open the new Rupaya Core wallet.</p>
 </li>
 <li><p class="first">Click on <strong>File</strong> and select <strong>Receiving addresses</strong>.</p>
 </li>
-<li><p class="first">Select the wallet address that is labeled <strong>no label</strong> and click on <strong>Copy</strong>.</p>
+<li><p class="first">Select the wallet address that is labeled <strong>no label</strong> and click <strong>Copy</strong>.</p>
 <blockquote>
 <div><ul class="simple">
 <li>You can name the wallet with a description such as “New Wallet” by right clicking it and selecting “Edit”.</li>
@@ -336,7 +352,7 @@
 <p>Now that the new wallet is installed, let’s take care of updating some very important default wallet settings.  These steps are especially critical if you plan to setup a MasterNode.</p>
 <div class="section" id="enable-coin-control">
 <h3>Enable Coin Control<a class="headerlink" href="#enable-coin-control" title="Permalink to this headline">¶</a></h3>
-<p>This feature will allow you to control your wallet inputs and to optimize staking.</p>
+<p>This feature will allow you to control your wallet inputs, to verify that all coins are consolidated into a single input, to choose which inputs you send coins from, and to optimize staking.</p>
 <ol class="arabic simple">
 <li>Open the Rupaya Wallet and click on <strong>Settings</strong></li>
 <li>Select <strong>Options</strong></li>
@@ -346,14 +362,23 @@
 </div>
 <div class="section" id="disable-zrupx-automint">
 <h3>Disable zRUPX Automint<a class="headerlink" href="#disable-zrupx-automint" title="Permalink to this headline">¶</a></h3>
-<p>This feature will disable the auto minting of RUPX into zRUPX.  <strong>THIS IS A CRITICAL STEP FOR THOSE THAT PLAN TO RUN A MASTERNODE</strong></p>
-<ol class="arabic simple">
-<li>Open the Rupaya Wallet and click on <strong>Settings</strong></li>
-<li>Select <strong>Options</strong></li>
-<li>Click on the <strong>Main</strong> tab</li>
-<li>Uncheck the check-box that says <strong>Enable zRUPX Automint</strong></li>
-<li>Click <strong>OK</strong> to close the wallet options.</li>
+<p>This feature will disable the auto minting of RUPX into zRUPX.</p>
+<ol class="arabic">
+<li><p class="first">Open the Rupaya Wallet and click on <strong>Settings</strong></p>
+</li>
+<li><p class="first">Select <strong>Options</strong></p>
+</li>
+<li><p class="first">Click on the <strong>Main</strong> tab</p>
+</li>
+<li><p class="first">Uncheck the check-box that says <strong>Enable zRUPX Automint</strong></p>
+</li>
+<li><p class="first">Click <strong>OK</strong> to close the wallet options.</p>
+<blockquote>
+<div><p><strong>NOTE: THIS IS A CRITICAL STEP FOR THOSE THAT PLAN TO RUN A MASTERNODE</strong></p>
+</div></blockquote>
+</li>
 </ol>
+<p><strong>Once completed, you can proceed to the next step to perform the coin swap with the Swap Bot.</strong></p>
 </div>
 </div>
 </div>

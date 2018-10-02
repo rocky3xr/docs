@@ -4,6 +4,7 @@
 .. _Windows_x86: https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-windows-32bit.zip
 .. _Linxu_64bit: https://github.com/rupaya-project/rupx/releases/download/v5.0.25/rupayaqt-linux-64bit.tar.gz
 
+.. _installnewwallet:
 
 ====================================
 Install the New Rupaya Core 5 Wallet
@@ -19,20 +20,18 @@ These instructions are intended for those that are installing the new Rupaya Cor
 	
 2. Delete the old Rupaya directory, if the computer contains the old Rupaya wallet::
 
-	* Mac: ~/Library/Application Support/Rupaya
+	* Mac: ~/Library/Application Support/Rupayacore
 	* Windows: ~\AppData\Roaming\Rupaya
-	
-3. Use one of the following links to download the appropriate wallet version for your system:
 
-	* Windows_64bit_
-	* Windows_x86_
-	* Linxu_64bit_
+.. warning:: Do not delete the current wallet directory if the existing wallet still has coins in it.  You should be doing this install on a computer that does not currently have a Rupaya wallet that contains coins.
+	
+3. Open the following URL in a web browser to download the appropriate wallet version for your system:
+
+	* https://github.com/rupaya-project/rupx/releases
 	
 4. Once downloaded, unzip the files and move the Rupaya-cli and Rupaya-qt files onto the desktop.  
 
 	* If prompted, confirm that you want to replace the existing file(s).
-
-.. warning:: Do not overwrite the current wallet if the existing wallet still has coins in it.  You should be doing this install on a computer that does not currently have a Rupaya wallet with coins in it.
 
 5.Double click the Rupaya-qt file to install the new wallet.
 
@@ -42,16 +41,22 @@ These instructions are intended for those that are installing the new Rupaya Cor
 	* If prompted by security or antivirus software, click **Allow Always**
 	* The new wallet should now open and begin to synchronize with the network
 
+NOTE: If the wallet is not synchronizing, then add the following line into the rupaya.conf configuration file **(Tools > Open Wallet Configuration File)**::
+ 
+	addnode=seeds.rupx.io
+	
+NOTE: The file should be blank by default.  **Be sure to restart the wallet every time you update the configuration file.**
+	
 Documenting Your New Wallet Address
 ===================================
 
-Now that the new Rupaya Core 5 wallet is installed, you will need to document your new wallet address to prepare for the coin swap with the Swap Bot.
+Now that the new Rupaya Core 5 wallet is installed, you need to document your new wallet address to prepare for the coin swap with the Swap Bot.
 
 1. Open the new Rupaya Core wallet.
 
 2. Click on **File** and select **Receiving addresses**.
 
-3. Select the wallet address that is labeled **no label** and click on **Copy**.
+3. Select the wallet address that is labeled **no label** and click **Copy**.
 
 	* You can name the wallet with a description such as "New Wallet" by right clicking it and selecting "Edit".
 
@@ -66,7 +71,7 @@ Now that the new wallet is installed, let's take care of updating some very impo
 Enable Coin Control
 ^^^^^^^^^^^^^^^^^^^
 
-This feature will allow you to control your wallet inputs and to optimize staking.
+This feature will allow you to control your wallet inputs, to verify that all coins are consolidated into a single input, to choose which inputs you send coins from, and to optimize staking.
 
 1. Open the Rupaya Wallet and click on **Settings**
 2. Select **Options**
@@ -76,10 +81,14 @@ This feature will allow you to control your wallet inputs and to optimize stakin
 Disable zRUPX Automint
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This feature will disable the auto minting of RUPX into zRUPX.  **THIS IS A CRITICAL STEP FOR THOSE THAT PLAN TO RUN A MASTERNODE**
+This feature will disable the auto minting of RUPX into zRUPX.
 
 1. Open the Rupaya Wallet and click on **Settings**
 2. Select **Options**
 3. Click on the **Main** tab
 4. Uncheck the check-box that says **Enable zRUPX Automint**
 5. Click **OK** to close the wallet options.
+
+	**NOTE: THIS IS A CRITICAL STEP FOR THOSE THAT PLAN TO RUN A MASTERNODE**
+
+**Once completed, you can proceed to the next step to perform the coin swap with the Swap Bot.**

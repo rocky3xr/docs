@@ -4,7 +4,7 @@
 Rupaya Core - Coin Swap Procedures
 ==================================
 
-Welcome to the Rupaya coin swap instructions page.  Use the following instructions to install the new Rupaya Core 5 wallet and complete the coin swap using the Swap Bot.
+Welcome to the Rupaya coin swap instructions page.  Use the following instructions to install the new Rupaya Core 5 wallet, complete the coin swap using the Swap Bot, upgrade an existing MasterNode VPS Hot wallet, update an existing MasterNode Cold wallet, and verify that your MasterNode started correctly.
 
 .. toctree::
    :maxdepth: 1
@@ -14,3 +14,5 @@ Welcome to the Rupaya coin swap instructions page.  Use the following instructio
    walletinstall.rst
    swapbotsteps.rst
    upgradeexistingmn.rst
+   updateexistingcoldwallet.rst
+   verifymnstarted2.rst

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Rupaya Core - Coin Swap Procedures &mdash; Rupaya 5.0 documentation</title>
+  <title>Verify the MasterNode Hot Wallet Started Successfully &mdash; Rupaya 5.0 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Unlock all of your Masternode coins" href="unlockmncoins.html" />
-    <link rel="prev" title="Getting Started" href="../merchants/about.html" />
+    <link rel="next" title="Masternodes: Basic Setup" href="../masternodes_basic/index.html" />
+    <link rel="prev" title="Update an Existing MasterNode Cold Wallet" href="updateexistingcoldwallet.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Rupaya Core Team" />
     <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
@@ -147,7 +147,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Network</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Rupaya Core - Coin Swap Procedures</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rupaya Core - Coin Swap Procedures</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="unlockmncoins.html">Unlock all of your Masternode coins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="consolidatingcoins.html">Consolidating Coins Into A Single Wallet Address</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="consolidatingcoins.html#consolidating-rupx">Consolidating RUPX</a></li>
@@ -176,7 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verify the MasterNode Hot Wallet Started Successfully</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_basic/index.html">Masternodes: Basic Setup</a><ul>
@@ -252,13 +252,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Rupaya Core - Coin Swap Procedures</li>
+          <li><a href="index.html">Rupaya Core - Coin Swap Procedures</a> &raquo;</li>
+        
+      <li>Verify the MasterNode Hot Wallet Started Successfully</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/coinswap/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/coinswap/verifymnstarted2.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -271,20 +273,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rupaya-core-coin-swap-procedures">
-<span id="coinswap"></span><h1>Rupaya Core - Coin Swap Procedures<a class="headerlink" href="#rupaya-core-coin-swap-procedures" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to the Rupaya coin swap instructions page.  Use the following instructions to install the new Rupaya Core 5 wallet, complete the coin swap using the Swap Bot, upgrade an existing MasterNode VPS Hot wallet, update an existing MasterNode Cold wallet, and verify that your MasterNode started correctly.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="unlockmncoins.html">Unlock all of your Masternode coins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="consolidatingcoins.html">Consolidating Coins Into A Single Wallet Address</a></li>
-<li class="toctree-l1"><a class="reference internal" href="walletinstall.html">Install the New Rupaya Core 5 Wallet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swapbotsteps.html">Swap Bot - Steps to Perform the Coin Swap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="updateexistingcoldwallet.html">Update an Existing MasterNode Cold Wallet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
-</ul>
+  <div class="section" id="verify-the-masternode-hot-wallet-started-successfully">
+<span id="verifymnstarted2"></span><h1>Verify the MasterNode Hot Wallet Started Successfully<a class="headerlink" href="#verify-the-masternode-hot-wallet-started-successfully" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Login to the Linux VPS console, via Putty or Terminal, as the user <strong>rupxmn</strong> (or the user that you used to install the Hot wallet).</p>
+</li>
+<li><p class="first">Run the command <strong>cat ~/.rupaya/debug.log | grep HotCold</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">rupaya</span><span class="o">/</span><span class="n">debug</span><span class="o">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">HotCold</span>
+</pre></div>
 </div>
+</li>
+</ol>
+<ul class="simple">
+<li>If the MasterNode started correctly then you will receive the following output: <strong>“CActiveFundamentalnode::EnableHotColdFundamentalNode() - Enabled! You may shut down the cold daemon.”</strong></li>
+<li>Output from this command will only show up if your MasterNode started successfully.  If you do not receive the expected output, then your MasterNode did not start successfully.</li>
+<li>The most common cause of this issue is attempting to start the MasterNode before the Hot wallet is fully synchronized.  Wait a couple of hours and then try to start it from the Cold wallet again.</li>
+</ul>
+<ol class="arabic" start="3">
+<li><p class="first">Run the following command to verify the status of the MasterNode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">masternode</span> <span class="n">status</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ul>
+<li><p class="first">If you see status <strong>Not capable masternode: Hot node, waiting for remote activation</strong>, you need to wait a bit longer for the blockchain to reach consensus. It’s common to take 60 to 120 minutes before activation can be done.</p>
+</li>
+<li><p class="first">If you see status <strong>MasterNode successfully started</strong> as well as the <strong>HotCold</strong> output from the first command then <strong>CONGRATULATIONS</strong> your MasterNode Hot wallet is now successfully enabled.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>NOTE: It will take a few hours until the first rewards start coming in.  The time before the first payout will increase as more MasterNodes come online.</strong></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>Check the MasterNode tracker website <a class="reference external" href="https://find.rupx.io/masternodes">https://find.rupx.io/masternodes</a> to see that your MasterNode(s) are showing up on the site.</li>
+</ol>
+<ul class="simple">
+<li>You will need to search by your <strong>MN1</strong> wallet address to locate it on the website.</li>
+<li>The site is refreshed every 5 minutes so don’t be surprised if it takes up to 5 minutes to show up on the website.</li>
+</ul>
+<p><strong>Congratulations! The setup process is complete and your MasterNode is fully operational! Go hug someone and tell them the good news :)</strong></p>
 </div>
 
 
@@ -295,10 +325,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="unlockmncoins.html" class="btn btn-neutral float-right" title="Unlock all of your Masternode coins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../masternodes_basic/index.html" class="btn btn-neutral float-right" title="Masternodes: Basic Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../merchants/about.html" class="btn btn-neutral" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="updateexistingcoldwallet.html" class="btn btn-neutral" title="Update an Existing MasterNode Cold Wallet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

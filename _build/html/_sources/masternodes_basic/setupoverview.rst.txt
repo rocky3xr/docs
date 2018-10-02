@@ -4,7 +4,7 @@
 Setup Overview
 ==============
 
-This guide will walk you through the bare minimum steps required to setup a Rupaya MasterNode on a Linux server and to setup a Cold Wallet on a Windows or Mac computer.  
+This guide will walk you through the steps required to setup a Rupaya MasterNode on a Linux server and to setup a Cold Wallet on a Windows or Mac computer.  
 	
 This guide assumes that you have a basic understanding of how to navigate the Linux OS for the setup of the MasterNode, and that you have an understanding of either a Windows or Mac OS for the setup of the Cold Wallet. 
 
@@ -40,11 +40,11 @@ Some people want to save a few bucks and run a MasterNode Hot wallet at home on 
 
 * Static IP addresses are also harder to get for residential users or they cost extra money.
 
-* You could loose out on MasterNode rewards if your node loses connectivity due to an Internet outage.
+* You could loose out on MasterNode rewards if your node loses connectivity due to an Internet or computer outage.
 
 * Running old PCs and Laptops at home also costs energy, creates noise and they can be a fire risk when running 24/7.
 
 * Your IP address can be traced back to your home, therefore it is unsafe. This gives potential thieves and hackers a target.
 
 
-**Recommendation:** Get a $5 a month Linux VPS from a provider such as Digital Ocean, Vultr, or AWS and save yourself from the possible loss of revinue when your home Internet or computer goes down.
+**Recommendation:** Get a $5 a month Linux VPS from a provider such as Digital Ocean, Vultr, or AWS and save yourself from the possible loss of revenue when your home Internet or home computer goes down.

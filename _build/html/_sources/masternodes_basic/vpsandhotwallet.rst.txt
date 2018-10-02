@@ -19,6 +19,12 @@ This server and wallet will run 24/7 and provides services to the network via TC
 4. :ref:`Configure a virtual swap space on the VPS to avoid running out of memory<swapspace>`
 5. :ref:`Configure the VPS internal firewall to allow SSH port 22 and the Rupaya Wallet port 9050<allowssh>`
 	
+**Create a New User and Login as rupxmn**
+
+1. :ref:`Create a new user named rupxmn<createnewuserbasic>`
+2. :ref:`Grant root access to the new user rupxmn<grantrootaccessbasic>`
+3. :ref:`Login as the new user rupxmn<loginasnewuserbasic>`
+
 **Download and Configure the Rupaya Hot wallet**
 	
 1. :ref:`Install the Rupaya Hot wallet on the VPS<downloadwallet>`
@@ -59,10 +65,10 @@ Order and setup a Linux VPS
 	
 .. _loginviassh:
 	
-3. Login to the VPS via SSH.
+3. Login to the VPS, via SSH, as the **root** user.
 
 	For Windows users, Putty_ is a very good SSH client that you can use to connect to a remote Linux server.
-	If you are running a VPS from Vultr or similar, you need to use an SSH client, such as Putty_, if you want to copy and paste these commands otherwise you will have to type them all out manually!
+	If you are running a VPS from Vultr, or a similar provider, then you need to use an SSH client, such as Putty_, if you want to have copy and paste functionality. Otherwise you will have to type them all out manually!
 
 .. _swapspace:
 	
@@ -85,6 +91,38 @@ Order and setup a Linux VPS
 	ufw logging on
 	ufw --force enable
 
+.. _createnewuserbasic:
+	
+Create a New User and Login as rupxmn
+-------------------------------------
+
+**OPTIONAL STEP:** The following steps (1 - 3) are optional.  These steps are strongly recommended for those that want to implement security best practices.  These steps are recommended so that the Hot wallet is not installed under the root user account.
+
+	* In these steps you will create a new user named **rupxmn**, set a password, grant that user root access, and login as the new user.
+	* All advanced Rupaya setup guides will assume that you used **rupxmn** as your user.
+	* For those of you that want to continue to use **root** as your user instead of **rupxmn**, you can skip ahead to the next section :ref:`Download and Configure the Rupaya Hot Wallet<hotwalletinstallbasic>`.
+
+1. Create a new user named **rupxmn** and assign a password to the new user::
+
+	useradd -m -s /bin/bash rupxmn
+	passwd rupxmn
+
+**Type in a new password, as you are prompted, two times.  Be sure to save this password somewhere safe, as you will need it to manage the VPS Hot wallet.**
+
+.. _grantrootaccessbasic:
+
+2. Grant root access to the new user rupxmn::
+
+	usermod -aG sudo rupxmn
+
+.. _loginasnewuserbasic:
+	
+3. Login as the new user rupxmn::
+
+	sudo login rupxmn
+
+.. _hotwalletinstallbasic:
+	
 Download and Configure the Rupaya Hot wallet
 --------------------------------------------
 
@@ -109,9 +147,9 @@ Download and Configure the Rupaya Hot wallet
 
 .. _savegenkey:
 
-4. Copy and save the MasterNode private key from the previous command to be used later in the process.  The value returned should look similar to the below example::
+4. Copy and save the MasterNode private key from the previous command to be used later in the process.  The value returned should look similar to the below example:
 
-	87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK
+	* 87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK
 
 .. _editconfig:
 	
@@ -121,7 +159,7 @@ Download and Configure the Rupaya Hot wallet
 
 .. _copyconfig:
 	
-6. Copy the rupaya.conf template and update the configuration data accordingly.  All variables that need to be updated manually are identified with the <> symbols around them::
+6. Copy the rupaya.conf template and update the variables manually.  All variables that need to be updated manually are identified with the **<>** symbols around them::
 	
 	rpcuser=rupayarpc 
 	rpcpassword=<alphanumeric_rpc_password> 
@@ -131,33 +169,27 @@ Download and Configure the Rupaya Hot wallet
 	rpcbind=127.0.0.1 
 	maxconnections=512 
 	listen=1 
-	daemon=1 
+	daemon=1
+	masternode=1
 	externalip=<public_mn_ip_address_here>:9050 
-	masternodeaddr=<public_mn_ip_address_here>:9050 
-	bind=<public_mn_ip_address_here> 
-	masternode=1 
-	masternodeprivkey=<public_mn_ip_address_here> 
-	addnode=seeds.rupx.io
+	masternodeaddr=<public_mn_ip_address_here> 
+	masternodeprivkey=<your_masternode_genkey_output> 
 	
-* Update the variable after rpcpassword= with a 40 character RPC rpcpassword.
-* You will need to generate the rpcpassword yourself. 
-* Update the variable after externalip= with your Linux VPS IP 
-* Update the variable after masternodeaddr= with your Linux VPS IP 
-* Update the variable after masternodeprivkey= with your MasterNode private key (GenKey) 
-* You can right click in Putty to paste all of the above into the configuration file.
+* You can right click in Putty to paste the template into the configuration file.
+* Update the variable after **rpcpassword=** with a 40 character RPC rpcpassword.
+* You will need to generate the rpcpassword yourself.
+* Use the **ifconfig** command to find out your Linux VPS IP address.  It is normally the address listed after the **eth0** interface. 
+* Save your Linux VPS IP address as we are going to use this IP again in the Cold wallet setup
+* Update the variable after **externalip=** with your Linux VPS IP 
+* Update the variable after **masternodeaddr=** with your Linux VPS IP 
+* Update the variable after **masternodeprivkey=** with your MasterNode private key (GenKey) 
 
 .. _pastetemplate:
 
-7. Paste the updated template into the rupaya.conf configuration file.
-
-.. _saveconfig:
-
-8. Save and exit the file by typing **CTRL+X** and hit **Y** + **ENTER** to save your changes.
+7. Paste the updated template into the **rupaya.conf** configuration file on the Linux VPS.
 
 * This is a real example of what the configuration file should look like when you are done updating the variables.
-* The IP address (`199.247.10.25` in this example) will be different for you. 
-* Use the **ifconfig** command to find out your VPS IP address.  It is normally the address of the **eth0** interface. 
-* Save your VPS IP address as we are going to use this IP and port (9050) again in the Cold wallet setup::
+* The IP address (`199.247.10.25` in this example) will be different for you::
 	
 	rpcuser=rupxuser 
 	rpcpassword=someSUPERsecurePASSWORD3746375620 
@@ -170,10 +202,13 @@ Download and Configure the Rupaya Hot wallet
 	daemon=1 
 	masternode=1 
 	externalip=199.247.10.25:9050 
-	masternodeaddr=199.247.10.25:9050 
+	masternodeaddr=199.247.10.25
 	masternodeprivkey=87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK 
-	addnode=seeds.rupx.io 
 	
+.. _saveconfig:
+
+8. Save and exit the file by typing **CTRL+X** and hit **Y** + **ENTER** to save your changes.
+
 .. _stopandstart:
 
 9. Stop and restart the Hot wallet.  The following commands will stop the service, wait 2 minutes, and then restart the service::
@@ -186,16 +221,16 @@ Verify the Hot wallet is synchronizing with the blockchain
 
 .. _getinfo:
 
-1. Run the `rupaya-cli getinfo` command to make sure that you see active connections::
+1. Run the **rupaya-cli getinfo** command to make sure that you see active connections::
 	
 	rupaya-cli getinfo
 	
 .. _blockcount:
 
-2. Run the `rupaya-cli getblockcount` command every few mins until you see the blocks increasing::
+2. Run the **rupaya-cli getblockcount** command every few mins until you see the blocks increasing::
 	
 	rupaya-cli getblockcount
 
+* NOTE: If your block count is **NOT** increasing then you will need to stop the daemon with the **rupaya-cli stop** command and then reindex with the **rupayad -reindex** command. 
 	
-You can now proceed to the next step to setup the Cold wallet while this wallet syncs up with the network and the other MasterNodes.
-
+**If your block count is indeed increasing, then you can proceed to the next step to setup the Cold wallet.**

@@ -171,28 +171,39 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../coinswap/upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/updateexistingcoldwallet.html">Update an Existing MasterNode Cold Wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/updateexistingcoldwallet.html#implementation-steps">Implementation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/updateexistingcoldwallet.html#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">Create a MN1 Wallet Address and send it the required burn coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/updateexistingcoldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../coinswap/updateexistingcoldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../coinswap/verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_basic/index.html">Masternodes: Basic Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#order-and-setup-a-linux-vps">Order and setup a Linux VPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#create-a-new-user-and-login-as-rupxmn">Create a New User and Login as rupxmn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#download-and-configure-the-rupaya-hot-wallet">Download and Configure the Rupaya Hot wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#verify-the-hot-wallet-is-synchronizing-with-the-blockchain">Verify the Hot wallet is synchronizing with the blockchain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -308,25 +319,15 @@ indicate endorsement or affiliation with any particular platform.</p>
 <p><a class="reference external" href="https://crypto-bridge.org/">https://crypto-bridge.org/</a></p>
 <p class="last">Information on CryptoBridge</p>
 </dd>
-<dt>Stocks.Exchange</dt>
-<dd><a class="first reference external image-reference" href="https://www.stocks.exchange/"><img alt="../_images/stocksexchange.png" class="align-right" src="../_images/stocksexchange.png" style="width: 200px;" /></a>
-<p><a class="reference external" href="https://www.stocks.exchange/">https://www.stocks.exchange/</a></p>
-<p class="last">Information on Stocks Exchange</p>
+<dt>STEX</dt>
+<dd><a class="first reference external image-reference" href="https://www.stex.com/"><img alt="../_images/STEX-logo.jpg" class="align-right" src="../_images/STEX-logo.jpg" style="width: 200px;" /></a>
+<p><a class="reference external" href="https://www.stex.com/">https://www.stex.com/</a></p>
+<p class="last">Information on STEX (Formally Stocks Exchange)</p>
 </dd>
 <dt>CryptoHub</dt>
 <dd><a class="first reference external image-reference" href="https://cryptohub.online/"><img alt="../_images/CryptoHub.png" class="align-right" src="../_images/CryptoHub.png" style="width: 75px;" /></a>
 <p><a class="reference external" href="https://cryptohub.online/">https://cryptohub.online/</a></p>
 <p class="last">Information on CryptoHub</p>
-</dd>
-<dt>qTrade</dt>
-<dd><a class="first reference external image-reference" href="https://qtrade.io/"><img alt="../_images/qtrade.png" class="align-right" src="../_images/qtrade.png" style="width: 75px;" /></a>
-<p><a class="reference external" href="https://qtrade.io/">https://qtrade.io/</a></p>
-<p class="last">Information on qTrade</p>
-</dd>
-<dt>TradeSatoshi</dt>
-<dd><a class="first reference external image-reference" href="https://tradesatoshi.com/"><img alt="../_images/TradeSatoshi.png" class="align-right" src="../_images/TradeSatoshi.png" style="width: 150px;" /></a>
-<p><a class="reference external" href="https://tradesatoshi.com/">https://tradesatoshi.com/</a></p>
-<p class="last">Information on TradeSatoshi</p>
 </dd>
 <dt>Graviex</dt>
 <dd><a class="first reference external image-reference" href="https://graviex.net"><img alt="../_images/graviex.png" class="align-right" src="../_images/graviex.png" style="width: 110px;" /></a>

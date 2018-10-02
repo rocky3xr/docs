@@ -169,28 +169,39 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="upgradeexistingmn.html">Upgrade an Existing MasterNode VPS Hot Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updateexistingcoldwallet.html">Update an Existing MasterNode Cold Wallet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#implementation-steps">Implementation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#create-a-mn1-wallet-address-and-send-it-the-required-burn-coins">Create a MN1 Wallet Address and send it the required burn coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="updateexistingcoldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_basic/index.html">Masternodes: Basic Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-on-a-home-computer-is-a-bad-idea">Running a MasterNode on a home computer is a bad idea</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#order-and-setup-a-linux-vps">Order and setup a Linux VPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#create-a-new-user-and-login-as-rupxmn">Create a New User and Login as rupxmn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#download-and-configure-the-rupaya-hot-wallet">Download and Configure the Rupaya Hot wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/vpsandhotwallet.html#verify-the-hot-wallet-is-synchronizing-with-the-blockchain">Verify the Hot wallet is synchronizing with the blockchain</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#create-a-new-mn-wallet-address-and-send-it-the-required-burn-coins">Create a new MN wallet address and send it the required burn coins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-mn-from-the-cold-wallet">Starting the MN from the Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html#starting-the-masternode-from-the-cold-wallet">Starting the MasterNode from the Cold Wallet</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/index.html#introduction">Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_advanced/index.html">Masternodes: Advanced Setup</a><ul class="simple">
@@ -264,7 +275,7 @@
             
   <div class="section" id="consolidating-coins-into-a-single-wallet-address">
 <span id="consolidatingcoins"></span><h1>Consolidating Coins Into A Single Wallet Address<a class="headerlink" href="#consolidating-coins-into-a-single-wallet-address" title="Permalink to this headline">¶</a></h1>
-<p>These instructions are intended for those that are consolidating all of your RUPX and zRUPX into a single wallet address.  This step is critical to completing the coin swap with the Swap Bot.</p>
+<p>These instructions are intended for those that are consolidating all of your RUPX and zRUPX into a single wallet address.  This process is critical to prepare for completing the coin swap with the Swap Bot.</p>
 <div class="section" id="consolidating-rupx">
 <h2>Consolidating RUPX<a class="headerlink" href="#consolidating-rupx" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -274,14 +285,14 @@
 </li>
 <li><p class="first">From the side wallet bar, click <strong>Send</strong>.</p>
 </li>
-<li><p class="first">In the <strong>Pay To:</strong> field, right click and select <strong>Paste</strong> to paste in the wallet address that you will be consolidating all of your RUPX coins into.</p>
+<li><p class="first">In the <strong>Pay To:</strong> field, right click and select <strong>Paste</strong> to paste in the wallet address that you copied in Step 1.</p>
 </li>
 <li><p class="first">Click <strong>Open Coin Control</strong>.</p>
 <blockquote>
 <div><p>If you haven’t already enabled Coin Control then follow these steps:</p>
 <ul class="simple">
 <li>From the Rupaya Wallet, click on <strong>Settings</strong>, select <strong>Options</strong>, click on the <strong>Wallet</strong> tab and then click the check-box that says <strong>Enable coin control features</strong>.</li>
-<li>This feature will allow you to control your wallet inputs to optimize staking.</li>
+<li>This feature will allow you to control your wallet inputs, to verify that all coins are consolidated into a single input, to choose which inputs you send coins from, and to optimize staking.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -312,7 +323,7 @@
 </ol>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Repeat the above steps for each wallet that contains RUPX coins.  It is critical that you successfully consoldate all of your RUPX and zRUPX coins into a single wallet address before proceeding to the next step.</p>
+<p class="last">Repeat the above steps for each wallet that contains RUPX coins.  It is critical that you successfully consoldate all of your RUPX and zRUPX coins into a single wallet address before proceeding with the coin swap.</p>
 </div>
 </div>
 <div class="section" id="consolidating-zrupx">
@@ -331,7 +342,7 @@
 <div><p>If you haven’t already enabled Coin Control then follow these steps:</p>
 <ul class="simple">
 <li>From the Rupaya Wallet, click on <strong>Settings</strong>, select <strong>Options</strong>, click on the <strong>Wallet</strong> tab and then click the check-box that says <strong>Enable coin control features</strong>.</li>
-<li>This feature will allow you to control your wallet inputs to optimize staking.</li>
+<li>This feature will allow you to control your wallet inputs, to verify that all coins are consolidated into a single input, to choose which inputs you send coins from, and to optimize staking.</li>
 </ul>
 </div></blockquote>
 </li>
@@ -363,7 +374,7 @@
 </ol>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Repeat the above steps for each wallet that contains zRUPX coins.  It is critical that you successfully consoldate all of your RUPX and zRUPX coins into a single wallet address before proceeding to the next step.</p>
+<p class="last">Repeat the above steps for each wallet that contains zRUPX coins.  It is critical that you successfully consoldate all of your RUPX and zRUPX coins into a single wallet address before proceeding with the coin swap.</p>
 </div>
 <p><strong>Once all of your coins have been consolidated, you can proceed to the next step to perform the coin swap with the Swap Bot</strong></p>
 </div>
