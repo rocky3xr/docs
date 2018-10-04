@@ -73,7 +73,7 @@ CryptoBridge
   Information on CryptoBridge
 
 
-STEX
+Stocks.Exchange
   .. image:: exchanges/STEX-logo.jpg
      :width: 200px
      :align: right
@@ -104,5 +104,16 @@ Graviex
   https://graviex.net
 
   Graviex is a part of the Gravio ecosystem, a blockchain-based communication platform. It offers extremely low rates and fees for trading. RUPX can be traded against BTC, ETH, LTC and DOGE.
+
+
+qTrade
+  .. image:: exchanges/qtrade.png
+     :width: 110px
+     :align: right
+     :target: https://qtrade.io/
+
+  https://qtrade.io/
+
+  Information on qTrade
 
 

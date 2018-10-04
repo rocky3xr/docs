@@ -62,20 +62,14 @@ Tools
 Block explorers, statistics and visualizations
 ----------------------------------------------
 
+- https://hereismy.rupx.io/
 - https://find.rupx.io/
-- http://whereismy.rupx.io/
-
-
-Treasury tools
---------------
-
-- http://mn.rupx.io/proposals
 
 
 Masternode management
 ---------------------
 
-- http://mn.rupx.io
+- http://rupx5.mn.zone/
 
 
 Price monitoring and statistics
@@ -84,20 +78,6 @@ Price monitoring and statistics
 - http://www.rupx.io
 - https://coinmarketcap.com/currencies/rupaya
 
-
-Mobile Apps
-===========
-
-iOS
----
-
-- **SatoWallet:** https://satowallet.com/app/
-
-
-Android
--------
-
-- **SatoWallet:** https://satowallet.com/app/
 
 
 .. _glossary:

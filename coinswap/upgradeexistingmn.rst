@@ -91,17 +91,21 @@ These instructions are intended for those that are already running a MasterNode 
 
 16. Copy the outputted GenKey and paste it in the text editor, overwriting the old GenKey, with the new one you just copied, on the line **masternodeprivkey=**
 
-17. Edit the new rupaya.conf file::
+17. Stop the Hot wallet with the **rupaya-cli stop** command::
+
+	rupaya-cli stop
+
+18. Edit the new rupaya.conf file::
 
 	nano ~/.rupayacore/rupaya.conf
 
-18. Copy the contents from the text editor, that you copied from the old rupaya.conf file, and paste all of the lines into the new rupaya.conf file.
+19. Copy the contents from the text editor, that you copied from the old rupaya.conf file, and paste all of the lines into the new rupaya.conf file.
 
-19. Close the file and save it by hitting **Ctrl-X**, and then type **Y** to confirm that you want to save it, and then hit **ENTER** to confirm the file name.
+20. Close the file and save it by hitting **Ctrl-X**, and then type **Y** to confirm that you want to save it, and then hit **ENTER** to confirm the file name.
 
-20. Stop and restart the wallet deamon::
+21. Restart the Hot wallet with the **rupayad -deamon** command::
 
-	rupaya-cli stop && sleep 60 && rupayad -daemon
+	rupayad -daemon
 	
 * NOTE: If you get the error "**error: couldn't connect to server**" then you may need to kill the process manually or reboot the VPS and then restart the wallet with the **rupayad -daemon** command.
 
