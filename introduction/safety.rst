@@ -40,14 +40,14 @@ seen below. Do NOT trust them.
 Scams
 =====
 
-There are many "fake" Rupaya/Darkcoin pages on the internet attempting to
+There are many "fake" Rupaya pages on the internet attempting to
 trick users into sending Rupaya or other cryptocurrencies or "open a
 wallet". Other scams include selling fake mining hardware, fake Rupaya or
 altcoins with a similar name, and Ponzi schemes (see below). Please be
 careful and do NOT trust any third parties listed here!!
 
 Beware of fake Twitter accounts impersonating Rupaya! The official Twitter
-account is: https://twitter.com/Rupayapay
+account is: https://twitter.com/rupayacoin
 
 Please report these and any others scams you encounter as follows:
 
