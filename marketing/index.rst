@@ -3,7 +3,7 @@
    :keywords: rupaya, rupx, marketing, logo, branding, media, press, fact sheet
 
 
-.. _marketing_information:
+.. _marketing:
 
 =========
 Marketing
@@ -43,10 +43,10 @@ The Rupaya logos provided here are for use by media outlets and our approved par
 
 Media Contact
 -------------
-Please direct all media inquirries to marketing@rupx.io
+Please direct all media inquiries to marketing@rupx.io
 
 Key Links
 ---------
-`Twitter <https://twitter.com/rupayacoin>`_
-`Medium <https://medium.com/@rupaya>`_
-`Reddit <https://www.reddit.com/r/RupayaCoin>`_
+| `Twitter <https://twitter.com/rupayacoin>`_
+| `Medium <https://medium.com/@rupaya>`_
+| `Reddit <https://www.reddit.com/r/RupayaCoin>`_

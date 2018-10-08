@@ -68,7 +68,7 @@ Install the Rupaya Cold Wallet
 3. Rename the old Rupaya directory to something like **rupaya4**. This will prevent the new wallet install from conflicting with any of the existing data.  This is only required if the computer contains the old Rupaya wallet:
 
 	* Mac: ~/Library/Application Support/Rupaya
-	* Windows: ~\AppData\Roaming\Rupaya
+	* Windows: ~/AppData/Roaming/Rupaya
 
 * NOTE: If you are confident that you no longer need this old data then you can just delete the old rupaya directory instead of renaming it.
 
@@ -147,7 +147,7 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 	* These are the default directories for the Rupaya data directory where this file is stored:
 	
 		* Mac: ~/Library/Application Support/Rupayacore
-		* Windows: ~\AppData\Roaming\Rupayacore
+		* Windows: ~/AppData/Roaming/Rupayacore
 
 * Below is an example of what you need in the `masternode.conf` file, all on a single line with no carriage returns.  The file contains an example that is commented out(with a # symbol in front). Read it if it helps. Based on the output from the `masternode outputs` command, I would add this line in::
 
