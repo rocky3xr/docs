@@ -73,3 +73,13 @@ interest.
    coinswap/index
    masternodes_basic/index
    masternodes_advanced/index
+
+.. _marketing:
+
+.. toctree::
+   :maxdepth: 3
+   :hidden:
+   :includehidden:
+   :caption: Marketing
+
+   marketing/index

@@ -20,7 +20,7 @@ Implementation Steps
 5. :ref:`Copy and save the txhash and outputidx<copysavetxhash_updateexisting>`
 6. :ref:`Go to Tools -> Open MasterNode Configuration File and add a line in the newly opened masternode.conf file<masternodeconf_updateexisting>`
 7. :ref:`Restart the Cold wallet to pick up the masternode.conf changes<restartcoldwallet_updateexisting>`
-8. :ref:`Open the Debug console to verify that the output from the masternode list-conf command`<listconf_updateexisting>`
+8. :ref:`Open the Debug console to verify that the output from the masternode list-conf command<listconf_updateexisting>`
 9. :ref:`Go to the MasterNodes tab and check if your newly added masternode is listed<masternodetab_updateexisting>`
 10. :ref:`Run the startmasternode alias false MN1 command, in the Cold Wallet debug console, in order to enable the MasterNode<startmasternode_updateexisting>`
 
@@ -38,7 +38,7 @@ Create a MN1 Wallet Address and send it the required burn coins
 	
 .. _sendburncoins_updateexisting:
 
-2. Send EXACTLY 20000 RUPX coins to the MN1 wallet address. Double check you've got the correct address before transferring the funds.
+2. Send **EXACTLY 20000 RUPX** coins to the MN1 wallet address. Double check you've got the correct address before transferring the funds.
 
 	After sending, you can verify the balance in the Transactions tab. This can take **a few minutes** to be confirmed by the network. Go get a glass of water. No alcoholic beverages please, we are not out of the woods yet.
 
@@ -59,12 +59,12 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 
 	masternode outputs
 	
-* You should see an output that looks like this in the Debug console::
+* You should see an output that looks like this in the Debug console:
    
 	'"txhash" : "c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487",'
 	'"outputidx" : 1'
 
-**NOTE: If you do not get output resembling the above example then you likely do not have EXACTLY 20000 RUPX in the MN1 wallet address.  You will need to resolve this issue and ensure that ONLY and EXACTLY 20000 RUPX is in the MN1 address and that it is in a single input.**
+* **NOTE: If you do not get output resembling the above example then you likely do not have EXACTLY 20000 RUPX in the MN1 wallet address.  You will need to resolve this issue and ensure that ONLY and EXACTLY 20000 RUPX is in the MN1 address and that it is in a single input.**
 
 .. _copysavetxhash_updateexisting:
 
@@ -74,10 +74,10 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 
 6. Go to `Tools` -> `Open MasterNode Configuration File` and add a line in the newly opened `masternode.conf` file.  If you get prompted to choose a program, select a text editor like Notepad/TextEdit to open it.
 	
-* These are the default directories for the Rupaya data directory where this file is stored::
+* These are the default directories for the Rupaya data directory where this file is stored:
 	
-	Mac: ~/Library/Application Support/Rupaya
-	Windows: ~\AppData\Roaming\Rupayacore
+	* Mac: ~/Library/Application Support/Rupaya
+	* Windows: ~\AppData\Roaming\Rupayacore
 
 * Below is an example of what you need in the `masternode.conf` file, all on a single line with no carriage returns.  The file contains an example that is commented out(with a **#** symbol in front). Read it for reference. Based on the output example from the **masternode outputs** command, you would add this line in::
 
@@ -120,7 +120,7 @@ Starting the MN from the Cold Wallet
 
 	startmasternode alias false MN1
 
-* NOTE: In the example above, the alias of my MasterNode was MN1. In your case, it might be different and is based on what you entered as the first word in the masternode.conf file.
-* NOTE: You should get multiple lines of output.  If one of the lines of output says **"result" : successful"** then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  If you did not get the **successful** output then there is likely an issue with the masternode.conf file that needs to be resolved first.
+* In the example above, the alias of my MasterNode was MN1. In your case, it might be different and is based on what you entered as the first word in the masternode.conf file.
+* You should get multiple lines of output.  If one of the lines of output says **"result" : successful"** then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  If you did not get the **successful** output then there is likely an issue with the masternode.conf file that needs to be resolved first.
 	
 **If you received the output that shows the MasterNode started successfully then you can proceed to the next step to verify that your MasterNode started correctly from the VPS Hot wallet.**

@@ -31,11 +31,12 @@ This server and wallet will run 24/7 and provides services to the network via TC
 2. :ref:`Start the Hot wallet service<startservice>`
 3. :ref:`Generate the MasterNode private key (aka GenKey)<generategenkey>`
 4. :ref:`Copy and save the MasterNode private key<savegenkey>`
-5. :ref:`Edit the Hot wallet configuration file (/root/.rupayacore/rupaya.conf)<editconfig>`
-6. :ref:`Copy the rupaya.conf template and update the configuration data accordingly<copyconfig>`
-7. :ref:`Paste the updated template into the rupaya.conf configuration file<pastetemplate>`
-8. :ref:`Save and exit the file by typing CTRL+X and hit Y + ENTER to save your changes<saveconfig>`
-9. :ref:`Stop and restart the Hot wallet <stopandstart>`
+5. :ref:`Stop the Hot wallet with the rupaya-cli stop command<stophotwallet>`
+6. :ref:`Edit the Hot wallet configuration file (~/.rupayacore/rupaya.conf)<editconfig>`
+7. :ref:`Copy the rupaya.conf template and update the configuration data accordingly<copyconfig>`
+8. :ref:`Paste the updated template into the rupaya.conf configuration file<pastetemplate>`
+9. :ref:`Save and exit the file by typing CTRL+X and hit Y + ENTER to save your changes<saveconfig>`
+10. :ref:`Restart the Hot wallet with the rupayad -daemon command<starthotwallet>`
 	
 **Verify the Hot wallet is synchronizing with the blockchain**
 	
@@ -151,19 +152,25 @@ Download and Configure the Rupaya Hot wallet
 
 	* 87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK
 
+.. _stophotwallet:
+
+5. Stop the Hot wallet with the **rupaya-cli stop** command::
+
+	rupaya-cli stop
+	
 .. _editconfig:
 	
-5. Edit the MasterNode Hot wallet configuration file (/root/.rupayacore/rupaya.conf)::
+6. Edit the MasterNode Hot wallet configuration file (~/.rupayacore/rupaya.conf)::
 
-	nano /root/.rupayacore/rupaya.conf
+	nano ~/.rupayacore/rupaya.conf
 
 .. _copyconfig:
 	
-6. Copy the rupaya.conf template and update the variables manually.  All variables that need to be updated manually are identified with the **<>** symbols around them::
+7. Copy the rupaya.conf template and update the variables manually.  All variables that need to be updated manually are identified with the **<>** symbols around them::
 	
 	rpcuser=rupayarpc 
 	rpcpassword=<alphanumeric_rpc_password> 
-	rpcport=7020 
+	rpcport=7050 
 	rpcallowip=127.0.0.1 
 	rpcconnect=127.0.0.1 
 	rpcbind=127.0.0.1 
@@ -186,14 +193,14 @@ Download and Configure the Rupaya Hot wallet
 
 .. _pastetemplate:
 
-7. Paste the updated template into the **rupaya.conf** configuration file on the Linux VPS.
+8. Paste the updated template into the **rupaya.conf** configuration file on the Linux VPS.
 
 * This is a real example of what the configuration file should look like when you are done updating the variables.
 * The IP address (`199.247.10.25` in this example) will be different for you::
 	
 	rpcuser=rupxuser 
 	rpcpassword=someSUPERsecurePASSWORD3746375620 
-	rpcport=7020 
+	rpcport=7050 
 	rpcallowip=127.0.0.1 
 	rpcconnect=127.0.0.1 
 	rpcbind=127.0.0.1 
@@ -207,13 +214,12 @@ Download and Configure the Rupaya Hot wallet
 	
 .. _saveconfig:
 
-8. Save and exit the file by typing **CTRL+X** and hit **Y** + **ENTER** to save your changes.
+9. Save and exit the file by typing **CTRL+X** and hit **Y** + **ENTER** to save your changes.
 
-.. _stopandstart:
+.. _starthotwallet:
 
-9. Stop and restart the Hot wallet.  The following commands will stop the service, wait 2 minutes, and then restart the service::
+10. Restart the Hot wallet with the **rupayad -daemon** command::
 
-	rupaya-cli stop && sleep 120 
 	rupayad -daemon
 	
 Verify the Hot wallet is synchronizing with the blockchain

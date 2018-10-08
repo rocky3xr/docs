@@ -200,7 +200,7 @@ Download and Configure the Rupaya Hot wallet
 	
 	rpcuser=rupxuser 
 	rpcpassword=someSUPERsecurePASSWORD3746375620 
-	rpcport=7020 
+	rpcport=7050 
 	rpcallowip=127.0.0.1 
 	rpcconnect=127.0.0.1 
 	rpcbind=127.0.0.1 
