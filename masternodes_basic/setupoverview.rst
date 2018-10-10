@@ -12,7 +12,7 @@ This guide assumes that you have a basic understanding of how to navigate the Li
 
 **Hot Wallet**
 
-	In this guide, we refer to the **Hot** wallet as the Rypaya wallet that is running on a Linux or Windows VPS.
+	In this guide, we refer to the **Hot** wallet as the Rupaya wallet that is running on a Linux or Windows VPS.
 
 	* The VPS runs the MasterNode server.  
 	* The VPS requires a public IP address statically configured on it.  
