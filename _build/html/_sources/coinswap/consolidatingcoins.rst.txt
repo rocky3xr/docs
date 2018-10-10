@@ -62,18 +62,20 @@ Consolidating zRUPX
 	* From the Rupaya Wallet, click on **Settings**, select **Options**, click on the **Wallet** tab and then click the check-box that says **Enable coin control features**.  
 	* This feature will allow you to control your wallet inputs, to verify that all coins are consolidated into a single input, to choose which inputs you send coins from, and to optimize staking.
 	
-6. Click **Select/Deselect all** and ensure that all of the checkboxes are checked and that none of them are locked.
+6. Click **Select/Deselect all** until the checkboxes are **NOT** checked and then only check boxes next to 7 or less of the available inputs.
+
+	* NOTE: If you select too many inputs then when you attempt to send the coins you will receive an error and the coins will not be sent.
 
 7. Click **OK** to close the **Coin Selection** window.
 
-8. Locate the numbers next to the field **Available Balance** and type that amount into the **Amount:** field at the bottom of the wallet.
+8. Locate the numbers next to the field **zRUPX Selected:** and type that amount into the **Amount:** field at the bottom of the wallet.
 
-10. Verify that the following information is correct:
+9. Verify that the following information is correct:
 
 	* Pay to wallet address is the correct wallet address you are consolidating all of the coins into.
-	* Amount field is the correct amount of all of the coins in the available balance.
+	* Amount field is the correct amount of all of the coins in the **zRUPX Selected** field.
 
-11. Click **Spend Zerocoin** to complete the transaction.  
+10. Click **Spend Zerocoin** to complete the transaction.  
 	
 	* Enter your wallet passphrase, if prompted.
 	* Click **Yes** when prompted to confirm that you are sure you want to send.

@@ -30,8 +30,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Marketing" href="../marketing/index.html" />
-    <link rel="prev" title="Verify the MasterNode Hot Wallet Started Successfully" href="../masternodes_basic/verifymnstarted.html" />
+    <link rel="next" title="VPS and Hot wallet Setup" href="adv-vpsandhotwallet.html" />
+    <link rel="prev" title="Enabling Hot Wallet Auto Start" href="../masternodes_finishingtouches/hotwalletautostart.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Rupaya Core Team" />
     <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
@@ -175,8 +175,32 @@
 <li class="toctree-l2"><a class="reference internal" href="../coinswap/verifymnstarted2.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../masternodes_usingssh/index.html">Masternodes: Getting Started with an SSH Client and SSH Keys</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/macgeneratesshkey.html#mac-users-generating-an-ssh-key">Mac Users - Generating an SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/macgeneratesshkey.html#using-the-ssh-key-to-connect-to-the-linux-vps">Using the SSH Key to Connect to the Linux VPS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_usingssh/pcgeneratesshkey.html">PC Users - Generating a New SSH Key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/pcgeneratesshkey.html#windows-users-generating-an-ssh-key">Windows Users - Generating an SSH Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_usingssh/downloadputty.html">PC Users - Download Putty and Configure SSH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/downloadputty.html#downloading-and-configuring-putty">Downloading and Configuring Putty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_usingssh/disablepasswordlogins.html">All Users - Disabling Password Logins and Root Login Access</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/disablepasswordlogins.html#disabling-password-login-capabilities">Disabling password login capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_usingssh/disablepasswordlogins.html#disabling-root-login-access">Disabling root login access</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../masternodes_basic/index.html">Masternodes: Basic Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#common-terminology">Common Terminology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
 </ul>
 </li>
@@ -198,10 +222,37 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/index.html#introduction">Introduction</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Masternodes: Advanced Setup</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../masternodes_finishingtouches/index.html">Masternodes: Finishing Touches</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_finishingtouches/logrotate.html">Configuring Logrotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_finishingtouches/hotwalletautostart.html">Enabling Hot Wallet Auto Start</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Masternodes: Advanced Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="adv-vpsandhotwallet.html">VPS and Hot wallet Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adv-vpsandhotwallet.html#order-and-setup-a-linux-vps">Order and setup a Linux VPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-vpsandhotwallet.html#create-a-new-user-and-login-as-rupxmn">Create a New User and Login as rupxmn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-vpsandhotwallet.html#download-and-configure-the-rupaya-hot-wallet">Download and Configure the Rupaya Hot wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-vpsandhotwallet.html#verify-the-hot-wallet-is-synchronizing-with-the-blockchain">Verify the Hot wallet is synchronizing with the blockchain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="adv-coldwallet.html">Cold Wallet Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#requirements">Requirements:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#create-a-mn1-wallet-address-and-send-it-the-20000-collateral-coins">Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#verify-the-masternode-conf-file-is-configure-correctly">Verify the Masternode.conf File is Configure Correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adv-coldwallet.html#start-the-masternode-from-the-cold-wallet">Start the MasterNode from the Cold Wallet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="adv-verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../masternodes_templates/index.html">Masternodes: Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_templates/hotwalletconfig.html">Hot Wallet Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_templates/masternodeconfig.html">Cold Wallet Masternode Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../masternodes_templates/coldwalletconfig.html">Cold Wallet Configuration File</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../marketing/index.html">Marketing</a><ul>
@@ -282,9 +333,14 @@
             
   <div class="section" id="masternodes-advanced-setup">
 <span id="masternodes-advanced"></span><h1>Masternodes: Advanced Setup<a class="headerlink" href="#masternodes-advanced-setup" title="Permalink to this headline">¶</a></h1>
-<p>This section is currently under construction and will be available once the process has been completely vetted and confirmed as accurate.  We expect this section to be completed by Sunday 10/7/18.</p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="adv-vpsandhotwallet.html">VPS and Hot wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adv-coldwallet.html">Cold Wallet Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adv-verifymnstarted.html">Verify the MasterNode Hot Wallet Started Successfully</a></li>
+</ul>
 </div>
+<p>This section of the guide is for advanced users that do not require explanations for each task.  The Advanced Setup guide provides you with the steps and commands necessary to setup the Linux VPS, Hot wallet, and Cold wallet without providing details about how or why each step is being performed.</p>
 </div>
 
 
@@ -295,10 +351,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../marketing/index.html" class="btn btn-neutral float-right" title="Marketing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="adv-vpsandhotwallet.html" class="btn btn-neutral float-right" title="VPS and Hot wallet Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../masternodes_basic/verifymnstarted.html" class="btn btn-neutral" title="Verify the MasterNode Hot Wallet Started Successfully" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../masternodes_finishingtouches/hotwalletautostart.html" class="btn btn-neutral" title="Enabling Hot Wallet Auto Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -24,9 +24,9 @@ Verify the MasterNode Hot Wallet Started Successfully
 	
 	* **NOTE: It will take a few hours until the first rewards start coming in.  The time before the first payout will increase as more MasterNodes come online.** 
 
-4. Check the MasterNode tracker website https://find.rupx.io/masternodes to see that your MasterNode(s) are showing up on the site.  
+4. Check the MasterNode tracker website http://rupx5.mn.zone to see that your MasterNode(s) are showing up on the site.  
 
-* You will need to search by your **MN1** wallet address to locate it on the website.  
+* You will need to search by your **MN1** wallet address or your Linux VPS IP address to locate it on the website.  
 * The site is refreshed every 5 minutes so don't be surprised if it takes up to 5 minutes to show up on the website.
 
-**Congratulations! The setup process is complete and your MasterNode is fully operational! Go hug someone and tell them the good news :)**
+**Congratulations! The initial setup process is complete and your MasterNode is fully operational! You can proceed to the** :ref:`Finishing Touches<masternodes_finishingtouches>` **section to enable logrotate and Hot wallet auto start.**

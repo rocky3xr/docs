@@ -17,14 +17,14 @@ Logo Explainer
 --------------
 The Rupaya Logo Explainer breaks down the meanings behind all of the design elements in the Rupaya logo. It is available as a downloadable PDF.
 
-`Rupaya Logo Explainer Download <https://>`_ 
+`Rupaya Logo Explainer Download <https://rupaya.ams3.digitaloceanspaces.com/docs/Rupaya_Identity_Guide.pdf>`_ 
 
 
 Identity Style Guide
 --------------------
 The Rupaya Identity Style Guide contains guidelines for the Rupaya logo, fonts, and colors. It is available as a downloadable PDF.
 
-`Rupaya Identity Style Guide Download <https://>`_ 
+`Rupaya Identity Style Guide Download <https://rupaya.ams3.digitaloceanspaces.com/docs/Rupaya_Identity_Guide.pdf>`_ 
 
 
 Rupaya Buzz
@@ -38,7 +38,7 @@ Imagery
 -------
 The Rupaya logos provided here are for use by media outlets and our approved partners. Other uses must be approved by our marketing department. The Rupaya logo **may only be used in the approved and provided colors, orientations, and lockups**. Appropriate clearspace must be adheared to. For the full, detailed usage guidelines be sure to download the Identity Style Guide above.
 
-`Rupaya Logo Zip Download <https://>`_ 
+`Rupaya Logo Zip Download <https://rupaya.ams3.digitaloceanspaces.com/docs/Rupaya_Logo_Files.zip>`_ 
 
 
 Media Contact
