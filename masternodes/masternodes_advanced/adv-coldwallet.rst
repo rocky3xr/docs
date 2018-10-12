@@ -47,21 +47,27 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 
 	masternode outputs
 
-3. Copy and save the `txhash` and `outputidx`.
+3. Copy and save the **txhash** and **outputidx**.
 
-4. Go to `Tools` -> `Open Masternode Configuration File` and add a line in the newly opened `masternode.conf` file.  
+4. Go to **Tools** -> **Open Masternode Configuration File** to open the **masternode.conf** file.  
 
-* Below is an example of what you need in the `masternode.conf` file, all on a single line with no carriage returns.  Based on the output from the `masternode outputs` command, I would add this line in::
+5. Copy the following template and paste it into the **masternode.conf** file, on a new line::
+
+	MN1 <public_mn_ip_address_here>:9050 <your_masternode_genkey_output> <collateral_output_txid> <collateral_output_index>
+	
+6. Update the **masternode.conf** file variables as instructed below.
+
+* Leave **MN1** as is.  
+* Replace the variable **<public_mn_ip_address_here>** with your Linux VPS IP address.
+* Leave **:9050** as is and ensure that there are no spaces between the IP address and the port. 
+* Replace the variable **<your_masternode_genkey_output>** with your masternode private key (aka GenKey). 
+* Replace the variable **<collateral_output_txid>** with the **txhash**.
+* Replace the variable **<collateral_output_index>** with the **outputidx**.
+* **NOTE:** Below is an example of what the newly added line will look like once you have updated it will all of the required information::
 
 	MN1 199.247.10.25:9050 87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487 1
 
-* **MN1** is the node's alias. 
-* **199.247.10.25** is the external IP address of the Linux VPS MasterNode server. 
-* **87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK** is your masternode private key (aka GenKey), which is the value used for the `masternodeprivkey=` line in the file **~/.rupayacore/rupaya.conf**. 
-* **c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487** is your TXhash from the `masternode outputs` command you ran in the Cold wallet. 
-* **1** is your 'outputidx' (aka Index) from the `masternode outputs` command you ran in the Cold wallet. 
-
-5. Restart the Cold wallet to pick up the changes to the `masternode.conf` file.
+7. Restart the Cold wallet to pick up the changes to the **masternode.conf** file.
 
 Verify the Masternode.conf File is Configure Correctly
 ------------------------------------------------------
@@ -70,11 +76,11 @@ Verify the Masternode.conf File is Configure Correctly
 
 	masternode list-conf
 
-* Verify that the output matches what you entered in the `masternode.conf` file.
+* Verify that the output matches what you entered in the **masternode.conf** file.
 	
 2. Go to the Masternodes tab and verify that the newly added MasterNode is listed.
 
-	* You should now see the newly added MasterNode with a status of `MISSING`.
+	* You should now see the newly added MasterNode with a status of **MISSING**.
 	
 Start the MasterNode from the Cold Wallet
 -----------------------------------------

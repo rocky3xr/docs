@@ -11,62 +11,31 @@ VPS and Hot wallet Setup
 
 These instructions are intended for those that are setting up a MasterNode Hot wallet on a Linux VPS.  This wallet and server will run 24/7 and will provide services to the network via TCP port **9050** for which it will be rewarded with coins. It will run with an empty wallet balance, reducing the risk of losing the funds in the event of an attack.
 
-**Order and setup a Linux VPS**
-	
-1. :ref:`Identify a VPS provider and order a Linux Ubuntu 16.04 server<identifyvps_vpsandhotwallet>`
-2. :ref:`Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet port 9050<externalfirewall_vpsandhotwallet>`
-3. :ref:`Login to the VPS, via SSH, as the root user<loginviassh_vpsandhotwallet>`
-4. :ref:`Install Linux updates<installlinuxupdates_vpsandhotwallet>`
-5. :ref:`Install fail2ban<installfail2ban_vpsandhotwallet>`
-6. :ref:`Install TZData<installtzdata_vpsandhotwallet>`
-7. :ref:`Set your timezone<settimezone_vpsandhotwallet>`
-8. :ref:`Configure a virtual swap space on the VPS to avoid running out of memory<swapspace_vpsandhotwallet>`
-9. :ref:`Configure the VPS internal firewall to allow SSH port 22 and the Rupaya Wallet port 9050<allowssh_vpsandhotwallet>`
-	
-**Create a New User and Login as rupxmn**
-
-1. :ref:`Create a new user named rupxmn<createnewuserbasic_vpsandhotwallet>`
-2. :ref:`Grant root access to the new user rupxmn<grantrootaccessbasic_vpsandhotwallet>`
-3. :ref:`Login as the new user rupxmn<loginasnewuserbasic_vpsandhotwallet>`
-
-**Download and Configure the Rupaya Hot wallet**
-	
-1. :ref:`Install the Rupaya Hot wallet on the VPS<downloadwallet_vpsandhotwallet>`
-2. :ref:`Start the Hot wallet service<startservice_vpsandhotwallet>`
-3. :ref:`Generate the MasterNode private key (aka GenKey)<generategenkey_vpsandhotwallet>`
-4. :ref:`Copy and save the MasterNode private key<savegenkey_vpsandhotwallet>`
-5. :ref:`Stop the Hot wallet with the rupaya-cli stop command<stophotwallet_vpsandhotwallet>`
-6. :ref:`Copy the rupaya.conf template, paste it into a text editor, and update the variables manually<copyconfig_vpsandhotwallet>`
-7. :ref:`Edit the Hot wallet configuration file (~/.rupayacore/rupaya.conf)<editconfig_vpsandhotwallet>`
-8. :ref:`Paste the updated template into the rupaya.conf configuration file<pastetemplate_vpsandhotwallet>`
-9. :ref:`Save and exit the file by typing CTRL+X and hit Y + ENTER to save your changes<saveconfig_vpsandhotwallet>`
-10. :ref:`Restart the Hot wallet with the rupayad -daemon command<starthotwallet_vpsandhotwallet>`
-	
-**Verify the Hot wallet is synchronizing with the blockchain**
-	
-1. :ref:`Run the rupaya-cli getinfo command to make sure that you see active connections<getinfo_vpsandhotwallet>`
-2. :ref:`Run the rupaya-cli getblockcount command every few mins until you see the blocks increasing<blockcount_vpsandhotwallet>`
-
 Order and setup a Linux VPS
 ---------------------------
 	
 .. _identifyvps_vpsandhotwallet:
 
-1. Identify a VPS provider and order a Linux Ubuntu 16.04 server.  Order the VPS server from a provider like DigitalOcean, Vultr, Linode, Amazon AWS, etc.  It's important not to run the VPS at home because of the risk of network instability that could cause loss of connectivity to the server.
+1. Identify a VPS provider and order a Linux Ubuntu 16.04 server.  It's important not to run the VPS at home because of the risk of network instability that could cause loss of connectivity to the server.  A VPS that meets the following requirements should cost around $5 per month.
 
-	**VPS Requirements**
+	**Recommended VPS Providers:**
 	
-	* Linux 64 bit, (e.g. Ubuntu 16.04)
-	* Dedicated Public IP Address
-	* Recommended at least 1GB of RAM and 20GB of disk space
-	* Basic Linux skills
-	
-	|br|	
-	You can get servers like this for $5 a month and can run 3 to 4 MasterNode wallets, from different coins, if the monthly cost is a concern.
+	* `Digital Ocean <https://m.do.co/c/95a89fb0b62d>`_
+	* `Vultr <https://www.vultr.com/?ref=7318338>`_
+	* `Linode <https://www.linode.com/>`_
+	* `Amazon Web Services (AWS) <https://aws.amazon.com/>`_
 
+	|br|
+	**VPS Minimum Requirements:**
+	
+	* Linux - Ubuntu 16.04 - 64 Bit OS
+	* 1GB of RAM
+	* 20GB of disk space
+	* Dedicated Public IP Address 
+	
 .. _externalfirewall_vpsandhotwallet:
 
-2. Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet port 9050
+2. Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet TCP port 9050.
 	
 .. _loginviassh_vpsandhotwallet:
 	
@@ -123,6 +92,8 @@ Order and setup a Linux VPS
 
 9. Configure the VPS internal firewall to allow SSH port 22 and the Rupaya Wallet port 9050::
 
+	ufw default deny incoming
+	ufw default allow outgoing
 	ufw allow 22/tcp	
 	ufw limit 22/tcp	
 	ufw allow 9050/tcp 	
@@ -210,15 +181,17 @@ Download and Configure the Rupaya Hot wallet
 	daemon=1
 	masternode=1
 	externalip=<public_mn_ip_address_here>:9050 
-	masternodeaddr=<public_mn_ip_address_here> 
-	masternodeprivkey=<your_masternode_genkey_output> 
+	masternodeaddr=<public_mn_ip_address_here>
+	bind=<public_mn_ip_address_here>
+	masternodeprivkey=<your_masternode_genkey_output>
 	
 * Update the variable after **rpcpassword=** with a 40 character RPC rpcpassword.
 * You will need to generate the rpcpassword yourself.
 * Use the **ifconfig** command, on the Linux VPS, to find out your Linux VPS IP address.  It is normally the address listed after the **eth0** interface after the word **inet addr:** 
 * Save your Linux VPS IP address as we are going to use this IP again in the Cold wallet setup
 * Update the variable after **externalip=** with your Linux VPS IP.  Ensure that there are no spaces between the IP address and the port **:9050**
-* Update the variable after **masternodeaddr=** with your Linux VPS IP 
+* Update the variable after **masternodeaddr=** with your Linux VPS IP
+* Update the variable after **bind=** with your Linux VPS IP
 * Update the variable after **masternodeprivkey=** with your MasterNode private key (GenKey)
 * Once all of the fields have been updated in the text editor, copy the template into your clipboard to be used in the next steps. 
 
@@ -245,9 +218,10 @@ Download and Configure the Rupaya Hot wallet
 	maxconnections=512 
 	listen=1 
 	daemon=1 
-	masternode=1 
+	masternode=1
 	externalip=199.247.10.25:9050 
 	masternodeaddr=199.247.10.25
+	bind=199.247.10.25
 	masternodeprivkey=87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK 
 	
 .. _saveconfig_vpsandhotwallet:

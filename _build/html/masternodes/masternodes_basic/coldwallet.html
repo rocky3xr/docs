@@ -174,19 +174,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../vps_usingssh/index.html">VPS: Getting Started with an SSH Client and SSH Keys</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#mac-users-generating-an-ssh-key">Mac Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys with Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#generating-an-ssh-key">Generating an SSH Key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#using-the-ssh-key-to-connect-to-the-linux-vps">Using the SSH Key to Connect to the Linux VPS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html">PC Users - Generating a New SSH Key</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html#windows-users-generating-an-ssh-key">Windows Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcusers/index.html">PC Users - Generating and Using SSH Keys with Putty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/pcgeneratesshkey.html">Generating a New SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html">Download Putty and Configure SSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#download-putty">Download Putty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#create-a-new-saved-session-named-rupx01">Create a New Saved Session Named rupx01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/downloadputty.html">PC Users - Download Putty and Configure SSH</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#downloading-and-configuring-putty">Downloading and Configuring Putty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/disablepasswordlogins.html">All Users - Disabling Password Logins and Root Login Access</a><ul>
@@ -196,7 +197,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Masternodes:</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MasterNodes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setupoverview.html">Setup Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="setupoverview.html#common-terminology">Common Terminology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
@@ -212,7 +213,6 @@
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Cold Wallet Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-a-mn1-wallet-address-and-send-it-the-20000-collateral-coins">Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
@@ -224,8 +224,18 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_finishingtouches/index.html">Finishing Touches</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/logrotate.html">Configuring Logrotate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/hotwalletautostart.html">Enabling Hot Wallet Auto Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html">Configure the User rupxmn to Use SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html">Disable Password Logins and Root Login Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-password-login-capabilities">Disabling password login capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-root-login-access">Disabling root login access</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/logrotate.html">Configure Logrotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/hotwalletautostart.html">Enable Hot Wallet Auto Start</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_advanced/index.html">Advanced Setup</a><ul>
@@ -313,7 +323,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Masternodes:</a> &raquo;</li>
+          <li><a href="../index.html">MasterNodes</a> &raquo;</li>
         
           <li><a href="index.html">Basic Setup</a> &raquo;</li>
         
@@ -348,41 +358,8 @@
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="implementation-steps">
-<h2>Implementation Steps<a class="headerlink" href="#implementation-steps" title="Permalink to this headline">¶</a></h2>
-<p><strong>Install the Rupaya Cold Wallet</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#installwalletbasic-coldwallet"><span class="std std-ref">Download the appropriate wallet version for your system</span></a> - (<a class="reference external" href="https://github.com/rupaya-project/rupx/releases/">Wallet_Download</a>)</li>
-<li><a class="reference internal" href="#backupwalletandkeys-coldwallet"><span class="std std-ref">Ensure your existing wallet.dat and private keys are backed up</span></a></li>
-<li><a class="reference internal" href="#renameolddirectory-coldwallet"><span class="std std-ref">Rename the old Rupaya directory if necessary</span></a></li>
-<li><a class="reference internal" href="#unzipwallet-coldwallet"><span class="std std-ref">Unzip the wallet and move the Rupaya-cli and Rupaya-qt files onto the desktop</span></a></li>
-<li><a class="reference internal" href="#installwallet-coldwallet"><span class="std std-ref">Double click the Rupaya-qt file to install the new wallet</span></a></li>
-</ol>
-<p><strong>Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#createmnaddressbasic-coldwallet"><span class="std std-ref">Create a receiving address named MN1</span></a></li>
-<li><a class="reference internal" href="#sendburncoinsbasic-coldwallet"><span class="std std-ref">Send EXACTLY 20000 RUPX coins to the MN1 address</span></a></li>
-</ol>
-<p><strong>Output your MN TXhash and Outputidx and update the MasterNode configuration file</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#opendebugconsolebasic-coldwallet"><span class="std std-ref">Open the Debug console</span></a></li>
-<li><a class="reference internal" href="#outputtxhashbasic-coldwallet"><span class="std std-ref">Run the Masternode outputs command to retrieve the transaction ID of the collateral transfer</span></a></li>
-<li><a class="reference internal" href="#copysavetxhashbasic-coldwallet"><span class="std std-ref">Copy and save the txhash and outputidx</span></a></li>
-<li><a class="reference internal" href="#masternodeconfbasic-coldwallet"><span class="std std-ref">Go to Tools -&gt; Open Masternode Configuration File and add a line in the newly opened masternode.conf file</span></a></li>
-<li><a class="reference internal" href="#restartcoldwalletbasic-coldwallet"><span class="std std-ref">Restart the Cold wallet to pick up the masternode.conf changes</span></a></li>
-</ol>
-<p><strong>Verify the Masternode.conf File is Configured Correctly</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#listconfbasic-coldwallet"><span class="std std-ref">Open the Debug console and verify the output from the masternode list-conf command is accurate</span></a></li>
-<li><a class="reference internal" href="#masternodetabbasic-coldwallet"><span class="std std-ref">Go to the Masternodes tab and verify that the newly added MasterNode is listed</span></a></li>
-</ol>
-<p><strong>Start the MasterNode from the Cold Wallet</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#startmasternodebasic-coldwallet"><span class="std std-ref">Run the startmasternode alias false MN1 command, in the Cold wallet Debug console, in order to enable the MasterNode</span></a></li>
-</ol>
-</div>
 <div class="section" id="install-the-rupaya-cold-wallet">
-<span id="installwalletbasic-coldwallet"></span><h2>Install the Rupaya Cold Wallet<a class="headerlink" href="#install-the-rupaya-cold-wallet" title="Permalink to this headline">¶</a></h2>
+<h2>Install the Rupaya Cold Wallet<a class="headerlink" href="#install-the-rupaya-cold-wallet" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Open the following URL in a web browser to download the appropriate wallet version for your system:</p>
 <blockquote>
@@ -494,17 +471,17 @@
 </ul>
 <p><strong>NOTE: If you do not get output resembling the above example then you likely do not have EXACTLY 20000 RUPX in the MN1 wallet address.  You will need to resolve this issue and ensure that ONLY and EXACTLY 20000 RUPX is in the MN1 address and that it is in a single input.</strong></p>
 <ol class="arabic" id="copysavetxhashbasic-coldwallet" start="3">
-<li><p class="first">Copy and save the <cite>txhash</cite> and <cite>outputidx</cite>.</p>
+<li><p class="first">Copy and save the <strong>txhash</strong> and <strong>outputidx</strong>.</p>
 <blockquote>
 <div><ul class="simple">
-<li>Both the <cite>txhash</cite> and <cite>outputidx</cite> will be used in the next step.</li>
-<li>The <cite>outputidx</cite> will be either a <cite>0</cite> or <cite>1</cite>, both are valid values.</li>
+<li>Both the <strong>txhash</strong> and <strong>outputidx</strong> will be used in the next step.</li>
+<li>The <strong>outputidx</strong> will be either a <strong>0</strong> or <strong>1</strong>, both are valid values.</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
 <ol class="arabic" id="masternodeconfbasic-coldwallet" start="4">
-<li><p class="first">Go to <cite>Tools</cite> -&gt; <cite>Open Masternode Configuration File</cite> and add a line in the newly opened <cite>masternode.conf</cite> file.</p>
+<li><p class="first">Go to <strong>Tools</strong> -&gt; <strong>Open Masternode Configuration File</strong> to open the <strong>masternode.conf</strong> file.</p>
 <blockquote>
 <div><ul>
 <li><p class="first">If you get prompted to choose a program, select a text editor like Notepad/TextEdit to open it.</p>
@@ -520,26 +497,35 @@
 </ul>
 </div></blockquote>
 </li>
+<li><p class="first">Copy the following template and paste it into the <strong>masternode.conf</strong> file, on a new line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MN1</span> <span class="o">&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">9050</span> <span class="o">&lt;</span><span class="n">your_masternode_genkey_output</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">collateral_output_txid</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">collateral_output_index</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update the <strong>masternode.conf</strong> file variables as instructed below.</p>
+</li>
 </ol>
 <ul>
-<li><p class="first">Below is an example of what you need in the <cite>masternode.conf</cite> file, all on a single line with no carriage returns.  The file contains an example that is commented out(with a # symbol in front). Read it if it helps. Based on the output from the <cite>masternode outputs</cite> command, I would add this line in:</p>
+<li><p class="first">Leave <strong>MN1</strong> as is.  This is the node’s alias and will be used in the Cold wallet Debug Console to enable the MasterNode.</p>
+</li>
+<li><p class="first">Replace the variable <strong>&lt;public_mn_ip_address_here&gt;</strong> with your Linux VPS IP address.</p>
+</li>
+<li><p class="first">Leave <strong>:9050</strong> as is and ensure that there are no spaces between the IP address and the port.  This is the TCP port that the Rupaya wallet uses.</p>
+</li>
+<li><p class="first">Replace the variable <strong>&lt;your_masternode_genkey_output&gt;</strong> with your masternode private key (aka GenKey) that you received as output from the <strong>rupaya-cli masternode genkey</strong> command on the Linux VPS.</p>
+</li>
+<li><p class="first">Replace the variable <strong>&lt;collateral_output_txid&gt;</strong> with the <strong>txhash</strong> that you received as output from the <strong>masternode outputs</strong> command in the Cold wallet Debug Console.</p>
+</li>
+<li><p class="first">Replace the variable <strong>&lt;collateral_output_index&gt;</strong> with the <strong>outputidx</strong> that you received as output from the <strong>masternode outputs</strong> command in the Cold wallet Debug Console.</p>
+</li>
+<li><p class="first"><strong>NOTE:</strong> Below is an example of what the newly added line will look like once you have updated it will all of the required information. All of the information should be contained in a single line with no carriage returns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MN1</span> <span class="mf">199.247</span><span class="o">.</span><span class="mf">10.25</span><span class="p">:</span><span class="mi">9050</span> <span class="mi">87</span><span class="n">LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</span> <span class="n">c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>MN1</strong> is the node’s alias.</p>
-</li>
-<li><p class="first"><strong>199.247.10.25</strong> is the external IP address of the Linux VPS MasterNode server.</p>
-</li>
-<li><p class="first"><strong>87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK</strong> is your masternode private key (aka GenKey), which is the value used for the <cite>masternodeprivkey=</cite> line in the file <strong>~/.rupayacore/rupaya.conf</strong>.</p>
-</li>
-<li><p class="first"><strong>c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487</strong> is your TXhash from the <cite>masternode outputs</cite> command you ran in the Cold wallet.</p>
-</li>
-<li><p class="first"><strong>1</strong> is your ‘outputidx’ (aka Index) from the <cite>masternode outputs</cite> command you ran in the Cold wallet.</p>
-</li>
 </ul>
-<ol class="arabic simple" id="restartcoldwalletbasic-coldwallet" start="5">
-<li>Restart the Cold wallet to pick up the changes to the <cite>masternode.conf</cite> file.</li>
+<ol class="arabic simple" id="restartcoldwalletbasic-coldwallet" start="7">
+<li>Restart the Cold wallet to pick up the changes to the <strong>masternode.conf</strong> file.</li>
 </ol>
 </div>
 <div class="section" id="verify-the-masternode-conf-file-is-configure-correctly">
@@ -552,19 +538,19 @@
 </li>
 </ol>
 <ul class="simple">
-<li>Verify that the output matches what you entered in the <cite>masternode.conf</cite> file.</li>
+<li>Verify that the output matches what you entered in the <strong>masternode.conf</strong> file.</li>
 </ul>
 <ol class="arabic" id="masternodetabbasic-coldwallet" start="2">
 <li><p class="first">Go to the Masternodes tab and verify that the newly added MasterNode is listed.</p>
 <blockquote>
 <div><ul class="simple">
-<li>You should now see the newly added MasterNode with a status of <cite>MISSING</cite>.</li>
+<li>You should now see the newly added MasterNode with a status of <strong>MISSING</strong>.</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
 <ul class="simple">
-<li>NOTE: If you want to control multiple MasterNode Hot wallets from this Cold wallet, you will need to repeat the previous steps to create a new MN wallet address, send it the 20000 collateral coins, and update the masternode.conf file. The <cite>masternode.conf</cite> file requires an entry for each MasterNode that you will be managing with this Cold wallet.</li>
+<li>NOTE: If you want to control multiple MasterNode Hot wallets from this Cold wallet, you will need to repeat the previous steps to create a new MN wallet address, send it the 20000 collateral coins, and update the masternode.conf file. The <strong>masternode.conf</strong> file requires an entry for each MasterNode that you will be managing with this Cold wallet.</li>
 </ul>
 </div>
 <div class="section" id="start-the-masternode-from-the-cold-wallet">
@@ -581,8 +567,9 @@
 </li>
 </ol>
 <ul class="simple">
-<li>In the example above, the alias of my MasterNode was MN1. In your case, it might be different and is based on what you entered as the first word in the masternode.conf file.</li>
-<li>You should get multiple lines of output.  If one of the lines of output says <strong>“result” : successful”</strong> then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  If you did not get the <strong>successful</strong> output then there is likely an issue with the masternode.conf file that needs to be resolved first.</li>
+<li>In the example above, the alias of the MasterNode is <strong>MN1</strong>. In your case, it might be different and is based on what you entered as the first word in the <strong>masternode.conf</strong> file.</li>
+<li>You should get multiple lines of output.  If one of the lines of output says <strong>“result” : successful”</strong> then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.</li>
+<li>If you did not get the <strong>successful</strong> output then there is likely an issue with the masternode.conf file that needs to be resolved first.</li>
 </ul>
 <p><strong>If you received the output that shows the MasterNode started successfully then you can proceed to the next step to verify that your MasterNode started correctly from the VPS Hot wallet.</strong></p>
 </div>

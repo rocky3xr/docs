@@ -18,7 +18,7 @@ Verify the MasterNode Hot Wallet Started Successfully
 
 	rupaya-cli masternode status
 
-* If you see status **Not capable masternode: Hot node, waiting for remote activation**, you need to wait a bit longer for the blockchain to reach consensus. It's common to take 60 to 120 minutes before activation can be done.
+* If you see status **Not capable masternode: Hot node, waiting for remote activation**, you need to wait a bit longer for the blockchain to reach consensus. It's common to take 60 to 120 minutes before the activation can be done.
 
 * If you see status **MasterNode successfully started** as well as the **HotCold** output from the first command then **CONGRATULATIONS** your MasterNode Hot wallet is now successfully enabled.
 	

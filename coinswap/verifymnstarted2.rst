@@ -6,9 +6,9 @@ Verify the MasterNode Hot Wallet Started Successfully
 
 1. Login to the Linux VPS console, via Putty or Terminal, as the user **rupxmn** (or the user that you used to install the Hot wallet).
 
-2. Run the command **cat ~/.rupaya/debug.log | grep HotCold**::
+2. Run the command **cat ~/.rupayacore/debug.log | grep HotCold**::
 	
-	cat ~/.rupaya/debug.log | grep HotCold
+	cat ~/.rupayacore/debug.log | grep HotCold
 
 * If the MasterNode started correctly then you will receive the following output: **"CActiveFundamentalnode::EnableHotColdFundamentalNode() - Enabled! You may shut down the cold daemon."** 
 * Output from this command will only show up if your MasterNode started successfully.  If you do not receive the expected output, then your MasterNode did not start successfully. 

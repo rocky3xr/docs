@@ -1,20 +1,24 @@
-.. _logrotate:
+.. _logrotate_mn:
 
-=====================
-Configuring Logrotate
-=====================
+===================
+Configure Logrotate
+===================
 
 This section is intended for MasterNode users that want to configure automatic log rotation.  This is to prevent the log files from filling up the Linux VPS hard drive.  If you do not occassionally clean up the log files then your Linux VPS hard drive will eventually fill up and the server will crash.  Completing the steps in this section will configure your Linux VPS to automatically clean up the logs every 30 days, rather than having to do it manually.  This is a necessary step for anyone running a MasterNode. 
 
-1. Connect to your Linux VPS and login as **root**.  
+1. Connect to your Linux VPS and login as **rupxmn**.
 
-* Be sure that you are logged in as **root** or many of the commands will not work.
+2. Elevate to **root** level privelege::
 
-2. Run the following command to create and edit the file **/etc/logrotate.d/rupaya**.  If prompted, type in the number **2** and hit **ENTER** to select Nano as your text editor::
+	sudo -i
+
+3. Run the following command to create and edit the file **/etc/logrotate.d/rupaya**::
 
 	nano /etc/logrotate.d/rupaya
+
+* If prompted, type in the number **2** and hit **ENTER** to select Nano as your text editor
 	
-3. Copy the following text and paste it into the file::
+4. Copy the following text and paste it into the file::
 
 	/home/rupxmn/.rupayacore/*.log {
 		su root adm
@@ -31,15 +35,17 @@ This section is intended for MasterNode users that want to configure automatic l
 
 * Save and close the file by hitting **Ctrl-X**, and then type **Y** to confirm that you want to save it, and then hit **ENTER** to confirm the file name.
 
-4. Run the following command to initialize logrotate::
+5. Run the following command to initialize logrotate::
 
 	logrotate /etc/logrotate.d/rupaya --state /home/rupxmn/logrotate-state --verbose
 
-5. Run the following command to open and edit the **crontab** file::
+6. Run the following command to open and edit the **crontab** file::
 
 	crontab -e
+
+* If prompted, type in the number **2** and hit **ENTER** to select Nano as your text editor
 	
-6. Copy the following text and paste it on the last line of the **crontab** file::
+7. Copy the following text and paste it on a new line at the bottom of the **crontab** file::
 
 	0 1 * * * /usr/sbin/logrotate /etc/logrotate.d/rupaya --state /home/rupxmn/logrotate-state
 

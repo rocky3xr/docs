@@ -174,19 +174,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../vps_usingssh/index.html">VPS: Getting Started with an SSH Client and SSH Keys</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#mac-users-generating-an-ssh-key">Mac Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys with Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#generating-an-ssh-key">Generating an SSH Key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#using-the-ssh-key-to-connect-to-the-linux-vps">Using the SSH Key to Connect to the Linux VPS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html">PC Users - Generating a New SSH Key</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html#windows-users-generating-an-ssh-key">Windows Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcusers/index.html">PC Users - Generating and Using SSH Keys with Putty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/pcgeneratesshkey.html">Generating a New SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html">Download Putty and Configure SSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#download-putty">Download Putty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#create-a-new-saved-session-named-rupx01">Create a New Saved Session Named rupx01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/downloadputty.html">PC Users - Download Putty and Configure SSH</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#downloading-and-configuring-putty">Downloading and Configuring Putty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/disablepasswordlogins.html">All Users - Disabling Password Logins and Root Login Access</a><ul>
@@ -196,7 +197,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Masternodes:</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MasterNodes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#common-terminology">Common Terminology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
@@ -212,7 +213,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#create-a-mn1-wallet-address-and-send-it-the-20000-collateral-coins">Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
@@ -224,8 +224,18 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_finishingtouches/index.html">Finishing Touches</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/logrotate.html">Configuring Logrotate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/hotwalletautostart.html">Enabling Hot Wallet Auto Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html">Configure the User rupxmn to Use SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/configuringssh.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html">Disable Password Logins and Root Login Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-password-login-capabilities">Disabling password login capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-root-login-access">Disabling root login access</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/logrotate.html">Configure Logrotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes_finishingtouches/hotwalletautostart.html">Enable Hot Wallet Auto Start</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced Setup</a><ul class="current">
@@ -313,7 +323,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Masternodes:</a> &raquo;</li>
+          <li><a href="../index.html">MasterNodes</a> &raquo;</li>
         
           <li><a href="index.html">Advanced Setup</a> &raquo;</li>
         
@@ -336,24 +346,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="vps-and-hot-wallet-setup">
-<span id="adv-vpsandhotwallet"></span><h1>VPS and Hot wallet Setup<a class="headerlink" href="#vps-and-hot-wallet-setup" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="adv-vpsandhotwallet"></span><div class="section" id="vps-and-hot-wallet-setup">
+<h1>VPS and Hot wallet Setup<a class="headerlink" href="#vps-and-hot-wallet-setup" title="Permalink to this headline">¶</a></h1>
 <p>These instructions are intended for advanced users that are setting up a MasterNode Hot wallet on a Linux VPS and don’t want to waste time with all those pesky details and explanations.</p>
 <div class="section" id="order-and-setup-a-linux-vps">
 <h2>Order and setup a Linux VPS<a class="headerlink" href="#order-and-setup-a-linux-vps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic" id="identifyvps-vpsandhotwallet">
 <li><p class="first">Identify a VPS provider and order a Linux Ubuntu 16.04 server.</p>
 <blockquote>
-<div><p><strong>VPS Requirements</strong></p>
+<div><p><strong>Recommended VPS Providers:</strong></p>
 <ul class="simple">
-<li>Linux 64 bit, (e.g. Ubuntu 16.04)</li>
+<li><a class="reference external" href="https://m.do.co/c/95a89fb0b62d">Digital Ocean</a></li>
+<li><a class="reference external" href="https://www.vultr.com/?ref=7318338">Vultr</a></li>
+<li><a class="reference external" href="https://www.linode.com/">Linode</a></li>
+<li><a class="reference external" href="https://aws.amazon.com/">Amazon Web Services (AWS)</a></li>
+</ul>
+<p><br />
+<strong>VPS Requirements</strong></p>
+<ul class="simple">
+<li>Linux - Ubuntu 16.04 - 64 Bit OS</li>
+<li>1GB of RAM</li>
+<li>20GB of disk space</li>
 <li>Dedicated Public IP Address</li>
-<li>Recommended at least 1GB of RAM and 20GB of disk space</li>
-<li>Basic Linux skills</li>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet port 9050</p>
+<li><p class="first">Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet TCP port 9050.</p>
 </li>
 <li><p class="first">Login to the VPS, via SSH, as the <strong>root</strong> user.</p>
 </li>

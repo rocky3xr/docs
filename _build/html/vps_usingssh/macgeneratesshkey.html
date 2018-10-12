@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mac Users - Generating and Using SSH Keys &mdash; Rupaya 5.0 documentation</title>
+  <title>Mac Users - Generating and Using SSH Keys with Terminal &mdash; Rupaya 5.0 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PC Users - Generating a New SSH Key" href="pcgeneratesshkey.html" />
+    <link rel="next" title="PC Users - Generating and Using SSH Keys with Putty" href="pcusers/index.html" />
     <link rel="prev" title="VPS: Getting Started with an SSH Client and SSH Keys" href="index.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Rupaya Core Team" />
@@ -174,19 +174,20 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">VPS: Getting Started with an SSH Client and SSH Keys</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Mac Users - Generating and Using SSH Keys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mac-users-generating-an-ssh-key">Mac Users - Generating an SSH Key</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mac Users - Generating and Using SSH Keys with Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generating-an-ssh-key">Generating an SSH Key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-the-ssh-key-to-connect-to-the-linux-vps">Using the SSH Key to Connect to the Linux VPS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pcgeneratesshkey.html">PC Users - Generating a New SSH Key</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pcgeneratesshkey.html#windows-users-generating-an-ssh-key">Windows Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pcusers/index.html">PC Users - Generating and Using SSH Keys with Putty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pcusers/pcgeneratesshkey.html">Generating a New SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pcusers/downloadputty.html">Download Putty and Configure SSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pcusers/downloadputty.html#download-putty">Download Putty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pcusers/downloadputty.html#create-a-new-saved-session-named-rupx01">Create a New Saved Session Named rupx01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pcusers/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pcusers/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="downloadputty.html">PC Users - Download Putty and Configure SSH</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="downloadputty.html#downloading-and-configuring-putty">Downloading and Configuring Putty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="disablepasswordlogins.html">All Users - Disabling Password Logins and Root Login Access</a><ul>
@@ -196,7 +197,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../masternodes/index.html">Masternodes:</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../masternodes/index.html">MasterNodes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes/masternodes_basic/setupoverview.html">Setup Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_basic/setupoverview.html#common-terminology">Common Terminology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
@@ -212,7 +213,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html#create-a-mn1-wallet-address-and-send-it-the-20000-collateral-coins">Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
@@ -224,8 +224,18 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/index.html">Finishing Touches</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/logrotate.html">Configuring Logrotate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/hotwalletautostart.html">Enabling Hot Wallet Auto Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/configuringssh.html">Configure the User rupxmn to Use SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/configuringssh.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/configuringssh.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/disablepasswordlogins_mn.html">Disable Password Logins and Root Login Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-password-login-capabilities">Disabling password login capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/disablepasswordlogins_mn.html#disabling-root-login-access">Disabling root login access</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/logrotate.html">Configure Logrotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../masternodes/masternodes_finishingtouches/hotwalletautostart.html">Enable Hot Wallet Auto Start</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes/masternodes_advanced/index.html">Advanced Setup</a><ul>
@@ -315,7 +325,7 @@
         
           <li><a href="index.html">VPS: Getting Started with an SSH Client and SSH Keys</a> &raquo;</li>
         
-      <li>Mac Users - Generating and Using SSH Keys</li>
+      <li>Mac Users - Generating and Using SSH Keys with Terminal</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -334,27 +344,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mac-users-generating-and-using-ssh-keys">
-<span id="macgeneratesshkey"></span><h1>Mac Users - Generating and Using SSH Keys<a class="headerlink" href="#mac-users-generating-and-using-ssh-keys" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mac-users-generating-and-using-ssh-keys-with-terminal">
+<span id="macgeneratesshkey"></span><h1>Mac Users - Generating and Using SSH Keys with Terminal<a class="headerlink" href="#mac-users-generating-and-using-ssh-keys-with-terminal" title="Permalink to this headline">¶</a></h1>
 <p>These instructions are intended for Mac users that want to generate an SSH key and start using it to connect to the Linux VPS.  This step is to be completed on the computer that you will be using to manage the Linux VPS.</p>
 <ul class="simple">
 <li>If you have already generated an SSH key and are already using it to connect to the Linux VPS then proceed to the section to <a class="reference internal" href="disablepasswordlogins.html#disablepasswordlogins"><span class="std std-ref">disable password logins and root login access</span></a>.</li>
 </ul>
-<p><strong>Implementation Steps</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#openterminal-macgeneratesshkey"><span class="std std-ref">Open the application named Terminal</span></a></li>
-<li><a class="reference internal" href="#mackeygen-macgeneratesshkey"><span class="std std-ref">Generate an ssh key on the Mac with the command: ssh-keygen command</span></a></li>
-<li><a class="reference internal" href="#sshintovps-macgeneratesshkey"><span class="std std-ref">Login to your Linux VPS via SSH</span></a></li>
-<li><a class="reference internal" href="#linuxkeygen-macgeneratesshkey"><span class="std std-ref">Generate an SSH key on the Linux VPS with the command: ssh-keygen</span></a></li>
-</ol>
-<p><strong>Using the SSH Key to Connect to the Linux VPS</strong></p>
-<ol class="arabic simple">
-<li><a class="reference internal" href="#open2ndterminal-macgeneratesshkey"><span class="std std-ref">Open a second Terminal window on your Mac and do not close the existing Terminal connection</span></a></li>
-<li><a class="reference internal" href="#copykeytoidrsa-macgeneratesshkey"><span class="std std-ref">Copy the SSH key from your Linux VPS to your id_rsa.pub file on your Mac</span></a></li>
-<li><a class="reference internal" href="#loginwithkeymac-macgeneratesshkey"><span class="std std-ref">Login to the Linux VPS using the new SSH key</span></a></li>
-</ol>
-<div class="section" id="mac-users-generating-an-ssh-key">
-<span id="openterminal-macgeneratesshkey"></span><h2>Mac Users - Generating an SSH Key<a class="headerlink" href="#mac-users-generating-an-ssh-key" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generating-an-ssh-key">
+<span id="openterminal-macgeneratesshkey"></span><h2>Generating an SSH Key<a class="headerlink" href="#generating-an-ssh-key" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Open the application named Terminal</li>
 </ol>
@@ -370,7 +367,7 @@
 </ol>
 <ul class="simple">
 <li>Hit <strong>ENTER</strong> to confirm the default file name.</li>
-<li>When prompted for an SSH Key Passphrase, do not type anything in and hit <strong>ENTER</strong> two times to skip this step.</li>
+<li>Hit <strong>ENTER</strong> two times, without typing anything in, when prompted for an SSH Key Passphrase.</li>
 </ul>
 <ol class="arabic" id="sshintovps-macgeneratesshkey" start="3">
 <li><p class="first">Login to your Linux VPS via SSH by running the following command in Terminal:</p>
@@ -398,7 +395,7 @@
 <div class="section" id="using-the-ssh-key-to-connect-to-the-linux-vps">
 <span id="open2ndterminal-macgeneratesshkey"></span><h2>Using the SSH Key to Connect to the Linux VPS<a class="headerlink" href="#using-the-ssh-key-to-connect-to-the-linux-vps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Open a second Terminal window on your Mac and do not close the existing Terminal connection:</p>
+<li><p class="first">Open a new Terminal window on your Mac:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="o">@&lt;</span><span class="n">public_mn_ip_address_here</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -432,7 +429,7 @@
 <li>You should no longer be prompted to enter a password.</li>
 <li>If you were prompted for a password then one of the previous steps failed and you will need to try again.</li>
 </ul>
-<p><strong>If you are able to login to the Linux VPS without being prompted for a password then this process is complete and you can proceed to next step to</strong> <a class="reference internal" href="disablepasswordlogins.html#disablepasswordlogins"><span class="std std-ref">disable password logins and root login access</span></a>.</p>
+<p><strong>If you are able to login to the Linux VPS without being prompted for a password then this process is complete and you can proceed to next section to</strong> <a class="reference internal" href="disablepasswordlogins.html#disablepasswordlogins"><span class="std std-ref">disable password logins and root login access</span></a>.</p>
 </div>
 </div>
 
@@ -444,7 +441,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pcgeneratesshkey.html" class="btn btn-neutral float-right" title="PC Users - Generating a New SSH Key" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pcusers/index.html" class="btn btn-neutral float-right" title="PC Users - Generating and Using SSH Keys with Putty" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="VPS: Getting Started with an SSH Client and SSH Keys" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

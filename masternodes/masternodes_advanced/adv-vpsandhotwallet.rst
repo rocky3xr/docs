@@ -1,6 +1,8 @@
 .. _Putty: https://putty.org/
-
 .. _adv-vpsandhotwallet:
+.. |br| raw:: html
+
+   <br />
    
 ========================
 VPS and Hot wallet Setup
@@ -15,14 +17,22 @@ Order and setup a Linux VPS
 
 1. Identify a VPS provider and order a Linux Ubuntu 16.04 server.
 
+	**Recommended VPS Providers:**
+	
+	* `Digital Ocean <https://m.do.co/c/95a89fb0b62d>`_
+	* `Vultr <https://www.vultr.com/?ref=7318338>`_
+	* `Linode <https://www.linode.com/>`_
+	* `Amazon Web Services (AWS) <https://aws.amazon.com/>`_
+
+	|br|
 	**VPS Requirements**
 	
-	* Linux 64 bit, (e.g. Ubuntu 16.04)
-	* Dedicated Public IP Address
-	* Recommended at least 1GB of RAM and 20GB of disk space
-	* Basic Linux skills
+	* Linux - Ubuntu 16.04 - 64 Bit OS
+	* 1GB of RAM
+	* 20GB of disk space
+	* Dedicated Public IP Address 
 	
-2. Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet port 9050
+2. Login to the VPS provider website and configure the external firewall to allow SSH port 22 and the Rupaya Wallet TCP port 9050.
 	
 3. Login to the VPS, via SSH, as the **root** user.
 

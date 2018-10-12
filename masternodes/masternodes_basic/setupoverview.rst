@@ -8,10 +8,16 @@ This guide will walk you through the steps required to setup a Rupaya MasterNode
 	
 This guide assumes that you have a basic understanding of how to navigate the Linux OS for the setup of the MasterNode, and that you have an understanding of either a Windows or Mac OS for the setup of the Cold wallet. 
 
-.. warning:: It's very common in this industry for scammers to offer "help" via remote screen sharing (TeamViewer, Skype, Zoom, WebEx, etc).  They will use nicknames like `MasterNode Helper`, `MasterNode Support`, `Cryptopia Support` and will be very nice and helpful to you. At least until they manage to run a command like `dumpprivkey`, `sendtoaddress` and your funds will be gone, adios, sayonara.  Please be aware and stay safe!	
-
 Common Terminology
 ------------------
+
+**Hosted masternode**
+
+	* Professional service that manages the installation and maintenance of the MasterNode server.  Running a masternode on your own does require an intermediate understanding of blockchains and server configuration, and while we do provide guides and tools to make this as easy as possible, we understand that many may still prefer to have someone take care of all the setup and maitenance.  Several members of the blockchain community have emerged to provide dedicated hosting solutions for a fee.  No technical experience is required as you need only provide them with payment for the collateral and hosting services to receive the block rewards.
+
+**Self-operated masternode**
+
+	* Personally managing the installation and maintenance of a MasterNode server.  Users with the required skills or the desire to learn more about the inner workings of the Rupaya network may choose to run their own MasterNode on a server of their choosing.  There are several steps involved in this process and the user assumes the responsibility to set up, configure, maintain, and secure your masternode collateral.  The following pages will get you started on your journey to understanding the masternode role and setting up your first masternode.
 
 **Hot Wallet**
 

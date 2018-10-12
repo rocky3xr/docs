@@ -13,8 +13,7 @@ VPS: Getting Started with an SSH Client and SSH Keys
    :maxdepth: 1
    
    macgeneratesshkey.rst
-   pcgeneratesshkey.rst
-   downloadputty.rst
+   pcusers/index
    disablepasswordlogins.rst
 	
 These instructions are intended for those that want to learn how to connect to a Linux VPS via an SSH client, such as Terminal for Mac users, or Putty for PC users.  These steps are crucial for properly securing your Linux VPS from brute force password attacks.

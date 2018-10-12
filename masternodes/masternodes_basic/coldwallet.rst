@@ -13,41 +13,6 @@ Requirements:
 	* Windows 7 or higher, Mac OS, or Linux
 	* Outgoing internet access to sync the blockchain and enable the MasterNode remotely
 
-Implementation Steps
---------------------
-
-**Install the Rupaya Cold Wallet**
-
-1. :ref:`Download the appropriate wallet version for your system<installwalletbasic_coldwallet>` - (Wallet_Download_)
-2. :ref:`Ensure your existing wallet.dat and private keys are backed up<backupwalletandkeys_coldwallet>`
-3. :ref:`Rename the old Rupaya directory if necessary<renameolddirectory_coldwallet>`
-4. :ref:`Unzip the wallet and move the Rupaya-cli and Rupaya-qt files onto the desktop<unzipwallet_coldwallet>`
-5. :ref:`Double click the Rupaya-qt file to install the new wallet<installwallet_coldwallet>`
-
-**Create a MN1 Wallet Address and Send it the 20000 Collateral Coins**
-
-1. :ref:`Create a receiving address named MN1<createmnaddressbasic_coldwallet>`
-2. :ref:`Send EXACTLY 20000 RUPX coins to the MN1 address<sendburncoinsbasic_coldwallet>`
-
-**Output your MN TXhash and Outputidx and update the MasterNode configuration file**
-
-1. :ref:`Open the Debug console<opendebugconsolebasic_coldwallet>`
-2. :ref:`Run the Masternode outputs command to retrieve the transaction ID of the collateral transfer<outputtxhashbasic_coldwallet>`
-3. :ref:`Copy and save the txhash and outputidx<copysavetxhashbasic_coldwallet>`
-4. :ref:`Go to Tools -> Open Masternode Configuration File and add a line in the newly opened masternode.conf file<masternodeconfbasic_coldwallet>`
-5. :ref:`Restart the Cold wallet to pick up the masternode.conf changes<restartcoldwalletbasic_coldwallet>`
-
-**Verify the Masternode.conf File is Configured Correctly**
-
-1. :ref:`Open the Debug console and verify the output from the masternode list-conf command is accurate<listconfbasic_coldwallet>`
-2. :ref:`Go to the Masternodes tab and verify that the newly added MasterNode is listed<masternodetabbasic_coldwallet>`
-
-**Start the MasterNode from the Cold Wallet**
-
-1. :ref:`Run the startmasternode alias false MN1 command, in the Cold wallet Debug console, in order to enable the MasterNode<startmasternodebasic_coldwallet>`
-
-.. _installwalletbasic_coldwallet:
-
 Install the Rupaya Cold Wallet
 ------------------------------
 
@@ -134,14 +99,14 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 
 .. _copysavetxhashbasic_coldwallet:
 
-3. Copy and save the `txhash` and `outputidx`.  
+3. Copy and save the **txhash** and **outputidx**.  
 
-	* Both the `txhash` and `outputidx` will be used in the next step. 
-	* The `outputidx` will be either a `0` or `1`, both are valid values.
+	* Both the **txhash** and **outputidx** will be used in the next step. 
+	* The **outputidx** will be either a **0** or **1**, both are valid values.
 
 .. _masternodeconfbasic_coldwallet:
 
-4. Go to `Tools` -> `Open Masternode Configuration File` and add a line in the newly opened `masternode.conf` file.  
+4. Go to **Tools** -> **Open Masternode Configuration File** to open the **masternode.conf** file.  
 
 	* If you get prompted to choose a program, select a text editor like Notepad/TextEdit to open it.
 	* These are the default directories for the Rupaya data directory where this file is stored:
@@ -149,19 +114,25 @@ Output your MN TXhash and Outputidx and update the MasterNode configuration file
 		* Mac: ~/Library/Application Support/Rupayacore
 		* Windows: ~/AppData/Roaming/Rupayacore
 
-* Below is an example of what you need in the `masternode.conf` file, all on a single line with no carriage returns.  The file contains an example that is commented out(with a # symbol in front). Read it if it helps. Based on the output from the `masternode outputs` command, I would add this line in::
+5. Copy the following template and paste it into the **masternode.conf** file, on a new line::
+
+	MN1 <public_mn_ip_address_here>:9050 <your_masternode_genkey_output> <collateral_output_txid> <collateral_output_index>
+	
+6. Update the **masternode.conf** file variables as instructed below.
+
+* Leave **MN1** as is.  This is the node's alias and will be used in the Cold wallet Debug Console to enable the MasterNode.
+* Replace the variable **<public_mn_ip_address_here>** with your Linux VPS IP address.
+* Leave **:9050** as is and ensure that there are no spaces between the IP address and the port.  This is the TCP port that the Rupaya wallet uses.
+* Replace the variable **<your_masternode_genkey_output>** with your masternode private key (aka GenKey) that you received as output from the **rupaya-cli masternode genkey** command on the Linux VPS. 
+* Replace the variable **<collateral_output_txid>** with the **txhash** that you received as output from the **masternode outputs** command in the Cold wallet Debug Console.
+* Replace the variable **<collateral_output_index>** with the **outputidx** that you received as output from the **masternode outputs** command in the Cold wallet Debug Console.
+* **NOTE:** Below is an example of what the newly added line will look like once you have updated it will all of the required information. All of the information should be contained in a single line with no carriage returns::
 
 	MN1 199.247.10.25:9050 87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487 1
 
-* **MN1** is the node's alias. 
-* **199.247.10.25** is the external IP address of the Linux VPS MasterNode server. 
-* **87LBTcfgkepEddWNFrJcut76rFp9wQG6rgbqPhqHWGvy13A9hJK** is your masternode private key (aka GenKey), which is the value used for the `masternodeprivkey=` line in the file **~/.rupayacore/rupaya.conf**. 
-* **c19972e47d2a77d3ff23c2dbd8b2b204f9a64a46fed0608ce57cf76ba9216487** is your TXhash from the `masternode outputs` command you ran in the Cold wallet. 
-* **1** is your 'outputidx' (aka Index) from the `masternode outputs` command you ran in the Cold wallet. 
-
 .. _restartcoldwalletbasic_coldwallet:
 
-5. Restart the Cold wallet to pick up the changes to the `masternode.conf` file.
+7. Restart the Cold wallet to pick up the changes to the **masternode.conf** file.
 
 .. _listconfbasic_coldwallet:
 
@@ -172,15 +143,15 @@ Verify the Masternode.conf File is Configure Correctly
 
 	masternode list-conf
 
-* Verify that the output matches what you entered in the `masternode.conf` file.
+* Verify that the output matches what you entered in the **masternode.conf** file.
 
 .. _masternodetabbasic_coldwallet:
 	
 2. Go to the Masternodes tab and verify that the newly added MasterNode is listed.
 
-	* You should now see the newly added MasterNode with a status of `MISSING`.
+	* You should now see the newly added MasterNode with a status of **MISSING**.
 	
-* NOTE: If you want to control multiple MasterNode Hot wallets from this Cold wallet, you will need to repeat the previous steps to create a new MN wallet address, send it the 20000 collateral coins, and update the masternode.conf file. The `masternode.conf` file requires an entry for each MasterNode that you will be managing with this Cold wallet.
+* NOTE: If you want to control multiple MasterNode Hot wallets from this Cold wallet, you will need to repeat the previous steps to create a new MN wallet address, send it the 20000 collateral coins, and update the masternode.conf file. The **masternode.conf** file requires an entry for each MasterNode that you will be managing with this Cold wallet.
  
 
 Start the MasterNode from the Cold Wallet
@@ -194,8 +165,9 @@ Start the MasterNode from the Cold Wallet
 
 	startmasternode alias false MN1
 
-* In the example above, the alias of my MasterNode was MN1. In your case, it might be different and is based on what you entered as the first word in the masternode.conf file.
-* You should get multiple lines of output.  If one of the lines of output says **"result" : successful"** then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  If you did not get the **successful** output then there is likely an issue with the masternode.conf file that needs to be resolved first.
+* In the example above, the alias of the MasterNode is **MN1**. In your case, it might be different and is based on what you entered as the first word in the **masternode.conf** file.
+* You should get multiple lines of output.  If one of the lines of output says **"result" : successful"** then you can proceed to the next step to verify the MasterNode started correctly on the VPS Hot wallet.  
+* If you did not get the **successful** output then there is likely an issue with the masternode.conf file that needs to be resolved first.
 
 	
 **If you received the output that shows the MasterNode started successfully then you can proceed to the next step to verify that your MasterNode started correctly from the VPS Hot wallet.**

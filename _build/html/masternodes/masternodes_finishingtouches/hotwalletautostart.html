@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Enabling Hot Wallet Auto Start &mdash; Rupaya 5.0 documentation</title>
+  <title>Enable Hot Wallet Auto Start &mdash; Rupaya 5.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Advanced Setup" href="../masternodes_advanced/index.html" />
-    <link rel="prev" title="Configuring Logrotate" href="logrotate.html" />
+    <link rel="prev" title="Configure Logrotate" href="logrotate.html" />
     <link href="../../_static/style.css" rel="stylesheet" type="text/css">
     <meta name="author" content="Rupaya Core Team" />
     <meta name="copyright" content="© Copyright 2018 Rupaya Core Team" />
@@ -174,19 +174,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../vps_usingssh/index.html">VPS: Getting Started with an SSH Client and SSH Keys</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#mac-users-generating-an-ssh-key">Mac Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html">Mac Users - Generating and Using SSH Keys with Terminal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#generating-an-ssh-key">Generating an SSH Key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/macgeneratesshkey.html#using-the-ssh-key-to-connect-to-the-linux-vps">Using the SSH Key to Connect to the Linux VPS</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html">PC Users - Generating a New SSH Key</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcgeneratesshkey.html#windows-users-generating-an-ssh-key">Windows Users - Generating an SSH Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/pcusers/index.html">PC Users - Generating and Using SSH Keys with Putty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/pcgeneratesshkey.html">Generating a New SSH Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html">Download Putty and Configure SSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#download-putty">Download Putty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#create-a-new-saved-session-named-rupx01">Create a New Saved Session Named rupx01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vps_usingssh/pcusers/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/downloadputty.html">PC Users - Download Putty and Configure SSH</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#downloading-and-configuring-putty">Downloading and Configuring Putty</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-putty-to-use-an-ssh-key">Configure Putty to use an SSH Key</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../vps_usingssh/downloadputty.html#configure-the-linux-vps-to-use-an-ssh-key">Configure the Linux VPS to use an SSH Key</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../vps_usingssh/disablepasswordlogins.html">All Users - Disabling Password Logins and Root Login Access</a><ul>
@@ -196,7 +197,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Masternodes:</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MasterNodes</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_basic/setupoverview.html">Setup Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#common-terminology">Common Terminology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/setupoverview.html#running-a-masternode-hot-wallet-on-a-home-computer-is-a-bad-idea">Running a MasterNode Hot wallet on a home computer is a bad idea</a></li>
@@ -212,7 +213,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../masternodes_basic/coldwallet.html">Cold Wallet Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#requirements">Requirements:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#implementation-steps">Implementation Steps</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#install-the-rupaya-cold-wallet">Install the Rupaya Cold Wallet</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#create-a-mn1-wallet-address-and-send-it-the-20000-collateral-coins">Create a MN1 Wallet Address and Send it the 20000 Collateral Coins</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../masternodes_basic/coldwallet.html#output-your-mn-txhash-and-outputidx-and-update-the-masternode-configuration-file">Output your MN TXhash and Outputidx and update the MasterNode configuration file</a></li>
@@ -224,8 +224,18 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Finishing Touches</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="logrotate.html">Configuring Logrotate</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Enabling Hot Wallet Auto Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuringssh.html">Configure the User rupxmn to Use SSH Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="configuringssh.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuringssh.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="disablepasswordlogins_mn.html">Disable Password Logins and Root Login Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="disablepasswordlogins_mn.html#disabling-password-login-capabilities">Disabling password login capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="disablepasswordlogins_mn.html#disabling-root-login-access">Disabling root login access</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="logrotate.html">Configure Logrotate</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Enable Hot Wallet Auto Start</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../masternodes_advanced/index.html">Advanced Setup</a><ul>
@@ -313,11 +323,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">Masternodes:</a> &raquo;</li>
+          <li><a href="../index.html">MasterNodes</a> &raquo;</li>
         
           <li><a href="index.html">Finishing Touches</a> &raquo;</li>
         
-      <li>Enabling Hot Wallet Auto Start</li>
+      <li>Enable Hot Wallet Auto Start</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -336,16 +346,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="enabling-hot-wallet-auto-start">
-<span id="hotwalletautostart"></span><h1>Enabling Hot Wallet Auto Start<a class="headerlink" href="#enabling-hot-wallet-auto-start" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="enable-hot-wallet-auto-start">
+<span id="hotwalletautostart"></span><h1>Enable Hot Wallet Auto Start<a class="headerlink" href="#enable-hot-wallet-auto-start" title="Permalink to this headline">¶</a></h1>
 <p>This section is intended for MasterNode users that want to configure the Linux VPS to automatically start the MasterNode Hot wallet when the Linux VPS is rebooted.</p>
-<ol class="arabic simple">
-<li>Connect to your Linux VPS and login as <strong>root</strong>.</li>
-</ol>
-<ul class="simple">
-<li>Be sure that you are logged in as <strong>root</strong> or many of the commands will not work.</li>
-</ul>
-<ol class="arabic" start="2">
+<ol class="arabic">
+<li><p class="first">Connect to your Linux VPS and login as <strong>rupxmn</strong>.</p>
+</li>
+<li><p class="first">Elevate to <strong>root</strong> level privelege:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">i</span>
+</pre></div>
+</div>
+</li>
 <li><p class="first">Run the following command to create and edit the file <strong>/etc/cron.d/resetrupaya</strong>.  This file will be used to tell the server to restart the Hot wallet upon bootup:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cron</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">resetrupaya</span>
 </pre></div>
@@ -360,21 +371,21 @@
 <ul class="simple">
 <li>Save and close the file by hitting <strong>Ctrl-X</strong>, and then type <strong>Y</strong> to confirm that you want to save it, and then hit <strong>ENTER</strong> to confirm the file name.</li>
 </ul>
-<ol class="arabic" start="4">
+<ol class="arabic" start="5">
 <li><p class="first">Reboot the Linux VPS to test and verify that the Hot wallet will restart upon boot:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reboot</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Wait a couple minutes and then reconnect your Linux VPS and login as <strong>root</strong>.</p>
+<li><p class="first">Wait a couple minutes and then reconnect your Linux VPS and login as <strong>rupxmn</strong>.</p>
 </li>
 </ol>
 <ul class="simple">
 <li>It will take a couple of minutes for the Linux VPS to reboot.</li>
 </ul>
-<ol class="arabic" start="6">
+<ol class="arabic" start="7">
 <li><p class="first">Run the command <strong>ps -ef |grep rupayad</strong> to verify the Hot wallet is running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">rupayad</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> <span class="o">|</span><span class="n">grep</span> <span class="n">rupayad</span>
 </pre></div>
 </div>
 </li>
@@ -383,18 +394,14 @@
 <li>You should get two lines of output, and one of the lines will have the text <strong>/usr/local/bin/rupayad</strong>.</li>
 <li>If you only get one line of text with the output <strong>grep –color=auto rupaya</strong> then the wallet is not running and you will need to walk through the above steps again.</li>
 </ul>
-<ol class="arabic" start="7">
+<ol class="arabic" start="8">
 <li><p class="first">Run the command <strong>rupaya-cli getblockcount</strong> to verify that your Hot wallet is indeed running and that your block count is increasing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">runuser</span> <span class="o">-</span><span class="n">l</span> <span class="n">rupxmn</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;rupaya-cli getblockcount&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rupaya</span><span class="o">-</span><span class="n">cli</span> <span class="n">getblockcount</span>
 </pre></div>
 </div>
 </li>
-</ol>
-<ul class="simple">
-<li>The above command is using the <strong>runuser</strong> option because you are currently logged in a <strong>root</strong> and need to run the command from the <strong>rupxmn</strong> user.</li>
-</ul>
-<ol class="arabic simple" start="8">
-<li>Verify that your MasterNode is still showing up on the MasterNode tracker website.  The site is refreshed every 5 minutes so check it a few times just to be sure.</li>
+<li><p class="first">Verify that your MasterNode is still showing up on the MasterNode tracker website.  The site is refreshed every 5 minutes so check it a few times just to be sure.</p>
+</li>
 </ol>
 <ul class="simple">
 <li><a class="reference external" href="http://rupx5.mn.zone/">http://rupx5.mn.zone/</a></li>
@@ -414,7 +421,7 @@
         <a href="../masternodes_advanced/index.html" class="btn btn-neutral float-right" title="Advanced Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="logrotate.html" class="btn btn-neutral" title="Configuring Logrotate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="logrotate.html" class="btn btn-neutral" title="Configure Logrotate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

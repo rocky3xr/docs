@@ -4,7 +4,7 @@
 Consolidating Coins Into A Single Wallet Address
 ================================================
 
-These instructions are intended for those that are consolidating all of your RUPX and zRUPX into a single wallet address.  This process is critical to prepare for completing the coin swap with the Swap Bot.
+These instructions are intended for those that are consolidating all of your RUPX and zRUPX into a single wallet address.  These steps are to be performed on an existing Rupaya 4.x wallet, not the new wallet.  This process is critical to prepare for completing the coin swap with the Swap Bot.
 
 Consolidating RUPX
 ==================
